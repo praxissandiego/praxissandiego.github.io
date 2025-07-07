@@ -1,7 +1,389 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praxis San Diego</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #f8fafb;
+            color: #333;
+            /* line-height: 1.6;*/
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 0.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-variant: small-caps;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /*.section::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: #ccc;
+            margin-top: 3rem;
+            position: absolute;
+            left: -60px;
+            width: 75%;
+        }*/
+
+        .section:last-child::after {
+            display: none;
+        }
+
+        .description {
+            margin-bottom: 3rem;
+        }
+
+        .table-section {
+            margin-bottom: 2rem;
+        }
+
+        .table-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .table-section p {
+            margin-bottom: 1rem;
+        }
+
+        .table-wrapper {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            max-height: 300px;
+            overflow: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .search-box {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box input {
+            font-family: 'Space Mono', monospace;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th:hover {
+            background-color: #ebebeb;
+        }
+
+        th::after {
+            content: ' ↕';
+            opacity: 0.3;
+            font-size: 0.8em;
+        }
+
+        th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+
+        th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .form-section {
+            margin-top: 3rem;
+        }
+
+        .form-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .google-form-placeholder {
+            background-color: #fff;
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            padding: 3rem;
+            text-align: center;
+            color: #666;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .view-full {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .view-full:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 0.2rem;
+            }
+
+            .table-wrapper {
+                max-height: 250px;
+            }
+
+            .search-box input {
+                min-width: 100%;
+            }
+        }
+
+        .google-form-wrapper {
+            position: relative;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            /* Some browsers allow limited iframe styling */
+            filter: hue-rotate(10deg) contrast(0.95);
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="container">
+        <header>
+            <h1>praxis san diego</h1>
+        </header>
+
+        <div class="section description">
+          <h2>About Us</h2>
+            <p>
+                We are a San Diego network of friends -- thinkers, activists, scientists, creatives, and more -- who want to live a good life together: spend time with those we deeply care for, learn about each other and the world, change what's around us for the better, create, be there for others, and feel supported ourselves.
+
+                <br><br>
+
+                Inspired by <a href="https://fractalnyc.com/">Fractal NYC</a> and <a href="https://fractalnyc.com/#:~:text=Neighborhoods%20We%20Are%20Crushing%20On">other communities around the world</a>, we are doing this by building our own intentional community. Right now this includes hosting hang out jams, teaching each other classes, and collaboratively working on things we want to build.
+
+                <br><br>
+
+                If this sounds fun and like something you want to participate in, check out what we've got going on and reach out below!
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="table-section">
+                <h2>Events</h2>
+
+                We are hosting bi-weekly hang out jams. Think of them as a temporary mini <a href="https://en.wikipedia.org/wiki/Fission%E2%80%93fusion_society">fission-fusion</a> parties where you are equally welcome to do everything from having a bustling in-depth conversation, to enjoying food and playing board games in a small group, to reading a book or working on a craft on your own in the presense of others.
+
+                <br><br>
+
+                We hold our hang out jams on Sundays starting 2pm. If you want to join the next one, get in touch through the form at the bottom of the page.
+            </div>
+
+            <div class="table-section">
+                <h2>University</h2>
+                <p></p>
+
+                We are starting a public university. Out first term will start September 15 and we will announce our classes and how to enroll in them soon. In addition, we have a weekly independent research group meeting where we work on and discuss progress in our self-directed research projects.
+
+            </div>
+        </div>
+
+        <div class="section form-section">
+            <h2>Get in touch</h2>
+            <div class="google-form-placeholder">
+                <!--<p>Google Form will be embedded here</p>
+                <p>Replace this div with your Google Form iframe code</p>
+                <p>Example: &lt;iframe src="your-google-form-url" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</p>-->
+                <iframe src="https://forms.gle/UXP3V6Q7fW6uLm2E6" width="100%" height="600" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Table initialization and data loading
+        async function loadTableData() {
+            try {
+                // Load research archives data
+                const archiveResponse = await fetch('data/research-archives.json');
+                const archiveData = await archiveResponse.json();
+
+                // Load project directory data
+                const projectResponse = await fetch('data/project-directory.json');
+                const projectData = await projectResponse.json();
+
+                // Populate archive table with first 5 items
+                const archiveBody = document.getElementById('archiveTableBody');
+                archiveData.slice(0, 5).forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><a href="${item.link}">${item.title}</a></td>
+                        <td>${item.author}</td>
+                        <td>${item.date}</td>
+                        <td>${item.type}</td>
+                    `;
+                    archiveBody.appendChild(row);
+                });
+
+                // Populate project table with first 5 items
+                const projectBody = document.getElementById('projectTableBody');
+                projectData.slice(0, 5).forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><a href="${item.link}">${item.name}</a></td>
+                        <td>${item.lead}</td>
+                        <td>${item.started}</td>
+                        <td>${item.status}</td>
+                    `;
+                    projectBody.appendChild(row);
+                });
+
+                // Initialize table functionality after data is loaded
+                initTable('table1', 'search1');
+                initTable('table2', 'search2');
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                // Fallback content if data files are not available
+                document.getElementById('archiveTableBody').innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
+                document.getElementById('projectTableBody').innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
+            }
+        }
+
+        // Table sorting and searching functionality
+        function initTable(tableId, searchId) {
+            const table = document.getElementById(tableId);
+            const searchInput = document.getElementById(searchId);
+            const tbody = table.querySelector('tbody');
+            const headers = table.querySelectorAll('th');
+
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(searchTerm) ? '' : 'none';
+                });
+            });
+
+            // Sorting functionality
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const column = parseInt(this.dataset.column);
+                    const isAsc = this.classList.contains('sort-asc');
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    // Remove sort classes from all headers
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+
+                    // Add appropriate class to clicked header
+                    this.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
+
+                    // Sort rows
+                    const sortedRows = rows.sort((a, b) => {
+                        const aText = a.cells[column].textContent.trim();
+                        const bText = b.cells[column].textContent.trim();
+
+                        // Check if values are dates
+                        const aDate = Date.parse(aText);
+                        const bDate = Date.parse(bText);
+
+                        if (!isNaN(aDate) && !isNaN(bDate)) {
+                            return isAsc ? bDate - aDate : aDate - bDate;
+                        }
+
+                        // Regular string comparison
+                        if (isAsc) {
+                            return bText.localeCompare(aText);
+                        } else {
+                            return aText.localeCompare(bText);
+                        }
+                    });
+
+                    // Re-append sorted rows
+                    sortedRows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadTableData);
+    </script>
 </body>
 </html>
