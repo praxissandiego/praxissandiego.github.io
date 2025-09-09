@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praxis San Diego</title>
+    <title>Praxis Community University</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -146,10 +146,10 @@
         }
 
 
-        th:nth-child(1), td:nth-child(1) { width: 44%; }
+        th:nth-child(1), td:nth-child(1) { width: 33%; }
         th:nth-child(2), td:nth-child(2) { width: 20%; }
-        th:nth-child(3), td:nth-child(3) { width: 16%; }
-        th:nth-child(4), td:nth-child(4) { width: 20%; }
+        th:nth-child(3), td:nth-child(3) { width: 28%; }
+        th:nth-child(4), td:nth-child(4) { width: 19%; }
 
         .class-name {
             font-weight: 700;
@@ -237,184 +237,214 @@
 
     <div class="container">
         <header>
-            <center><h1>PRAXIS SAN DIEGO</h1></center>
+            <div class="header-content">
+                <h1>Praxis Community University</h1>
+                <a href="index.html" class="back-link">← to Praxis SD</a>
+            </div>
         </header>
 
-        <div class="section description">
-          <h2>What Is This All About?</h2>
+        <div class="description">
             <p>
-              All of us want to live a good life. It's hard to live such a life without a broad and supportive community. It's also hard to do it without a tight-knit circle of those who we want to share our life with both in adventures and in mundanities.
+              Inspired by <a href="https://fractaluniversity.substack.com/about">Fractal U in NYC</a>, we are starting a community university: a place to teach and learn from each other for fun in a setting outside of academia. Our goal is to create an environment in which learning is enjoyable, by-the-community and for-the-community, and as widely accessible as possible.
               <br><br>
-              We are, in short, a small, but growing group of friends living in San Diego who are working on (re)building the practices that help us to do that. Inspired by <a href="https://fractalnyc.com/">Fractal NYC</a> and <a href="https://fractalnyc.com/#:~:text=Alumni%20of%20Our%20Neighborhood%20Accelerator">other civicas around the world</a>, we are building our own intentional community here. We are doing this one small step at a time -- by hosting a dinner, or holding a weekly party, or teaching a class -- and we are having a lot of fun along the way! Below you can find some details of what we've been up to.
+              You can find the classes available in our Fall 2025 term and information about them below. <b><u>The Fall 2025 term starts October 4. The <a href="#apply">registration</a> is open until September 28.</u></b>
               <br><br>
-              If this resonates with you, don't hold back and reach out to us!
+              Come join us to learn from your peers, neighbors, and friends, meet people interested in the same topics as you, get useful knowledge, and have fun doing that!
             </p>
         </div>
 
-        <div class="section">
-            <div class="table-section">
-                <h2>Events</h2>
-                We are hosting bi-weekly hang out jams. Every Sunday starting at 2pm, we gather to spend time in the company of others. This could include doing things with others -- talking, having food, playing boardgames --  but could also mean doing something on your own -- reading, working on a craft, or finishing a project -- whatever feels better to you! Everyone is welcome to join and participate in the activities that are happening or bring their own.
-
-                <br><br>
-
-                In addition, we have a weekly independent research group meeting. In the meetings, we work on and discuss progress in our self-directed research projects.
-
-                <br><br>
-
-                If either of these events sound fun, reach out through <a href="#apply">the form at the bottom of the page</a>!
-            </div>
-
-            <br>
-
-            <div class="table-section">
-                <h2>Community University</h2>
-                <p></p>
-
-                We are starting a community university: a place to teach and learn from each other for fun in a setting outside of academia. Learning thrives when it is enjoyable and community driven, and this is exactly what we are doing here. Come learn from your peers, neighbors, and friends, meet people interested in the same topics as you, get useful knowledge, and have fun!
-                <br>
-                Below are the classes of our first Fall 2025 term:
-                <br><br>
-                <div class="table-wrapper">
-                    <table id="table1">
-                        <thead>
-                            <tr>
-                                <th data-column="0">Class (Click for More Info)</th>
-                                <th data-column="1">Start Date</th>
-                                <th data-column="2">Duration</th>
-                                <th data-column="3">Interested?</th>
-                            </tr>
-                        </thead>
-                        <tbody id="universityTableBody">
-                            <!-- Data loaded here -->
-                        </tbody>
-                    </table>
-                </div>
-                <br>
-                The term starts October 4 and the registration for classes will be open until September 28. If you want to learn more, <a href="university.html" class="view-full">click here</a> to visit our community university page.
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by title, author, or keyword...">
             </div>
         </div>
 
-        <br>
+        <div class="table-wrapper">
+            <table id="archiveTable">
+                <thead>
+                    <tr>
+                        <th data-column="0">Class & Description<br>(Click for Info)</th>
+                        <th data-column="1">Instructor(s)</th>
+                        <th data-column="2">Days, Times, and Dates</th>
+                        <th data-column="3">Location</th>
+                    </tr>
+                </thead>
+                <tbody id="archiveTableBody">
+                    <!-- Data loaded here -->
+                </tbody>
+            </table>
+        </div>
 
-        <div class="section form-section">
-            <h2 id="apply">Get in touch</h2>
-            <div class="google-form-placeholder">
-                <iframe data-tally-src="https://tally.so/embed/3EpPdL?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="1447" frameborder="0" marginheight="0" marginwidth="0" title="Reach Out to Praxis San Diego"></iframe>
-                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-            </div>
+        <div class="stats">
+            <span id="visibleCount">20</span> of <span id="totalCount">20</span> entries shown
+        </div>
+
+        <br><br>
+
+        <h2 id="apply">Application Form</h2>
+
+        <div class="form-embed" id="formContainer">
+            <iframe
+                src="https://tally.so/embed/mKXVpM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                width="100%"
+                height="600"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                title="Application Form">
+            </iframe>
+            <!--<iframe data-tally-src="https://tally.so/embed/mKXVpM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1109" frameborder="0" marginheight="0" marginwidth="0" title="Praxis Community University
+Fall 2025 Application Form"></iframe>-->
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
     </div>
 
     <script>
-        // Table initialization and data loading
-        async function loadTableData() {
+        // Initialize variables
+        let allData = [];
+        let filteredData = [];
+
+        // Load data from JSON file
+        async function loadData() {
             try {
-                // Load university data
-                const universityResponse = await fetch('data/classes-current.json');
-                const universityData = await universityResponse.json();
+                const response = await fetch('data/classes-current.json');
+                allData = await response.json();
+                filteredData = [...allData];
 
-                // Populate university table
-                const universityBody = document.getElementById('universityTableBody');
-                universityData.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td><a href="${item.link}">${item.name}</a></td>
-                        <td>${item.start}</td>
-                        <td>${item.duration}</td>
-                        <td><a href="../university.html#apply">Apply here</a></td>
-                    `;
-                    universityBody.appendChild(row);
-                });
+                // Update total count
+                document.getElementById('totalCount').textContent = allData.length;
 
-                /*
-                // Load project directory data
-                const projectResponse = await fetch('data/project-directory.json');
-                const projectData = await projectResponse.json();
+                // Populate table
+                populateTable(allData);
 
-
-                // Populate project table with first 5 items
-                const projectBody = document.getElementById('projectTableBody');
-                projectData.slice(0, 5).forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td><a href="${item.link}">${item.name}</a></td>
-                        <td>${item.lead}</td>
-                        <td>${item.started}</td>
-                        <td>${item.status}</td>
-                    `;
-                    projectBody.appendChild(row);
-                });
-                */
-
-                // Initialize table functionality after data is loaded
-                initTable('table1');
-                //initTable('table2', 'search2');
+                // Initialize filters and sorting
+                initializeControls();
 
             } catch (error) {
                 console.error('Error loading data:', error);
-                // Fallback content if data files are not available
-                document.getElementById('universityTableBody').innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
+                document.getElementById('archiveTableBody').innerHTML =
+                    '<tr><td colspan="5">Unable to load data. Please check data files.</td></tr>';
             }
         }
 
-        // Table sorting and searching functionality
-        function initTable(tableId) {
-            const table = document.getElementById(tableId);
-            //const searchInput = document.getElementById(searchId);
-            const tbody = table.querySelector('tbody');
-            const headers = table.querySelectorAll('th');
+        // Populate table with data
+        function populateTable(data) {
+            const tbody = document.getElementById('archiveTableBody');
+            tbody.innerHTML = '';
 
-            /*
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                const rows = Array.from(tbody.querySelectorAll('tr'));
-                rows.forEach(row => {
-                    const text = row.textContent.toLowerCase();
-                    row.style.display = text.includes(searchTerm) ? '' : 'none';
-                });
+            data.forEach(item => {
+                const row = document.createElement('tr');
+
+                row.id = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+                row.innerHTML = `
+                    <td>
+                        <div class="class-name"><a href="${item.link}">${item.name}</a></div>
+                        <div class="class-description">${item.description}</div>
+                    </td>
+                    <td>${item.instructor}</td>
+                    <td>${item.when}</td>
+                    <td>${item.where}</td>
+                `;
+                tbody.appendChild(row);
             });
-            */
+
+            // Update visible count
+            document.getElementById('visibleCount').textContent = data.length;
+        }
+
+        // Initialize controls
+        function initializeControls() {
+            const searchInput = document.getElementById('searchInput');
+            const headers = document.querySelectorAll('th');
+
+            // Search functionality
+            searchInput.addEventListener('input', filterTable);
 
             // Sorting functionality
             headers.forEach(header => {
+                header.sortState = 'none'; // Track sort state: none, asc, desc
+
                 header.addEventListener('click', function() {
                     const column = parseInt(this.dataset.column);
-                    const isAsc = this.classList.contains('sort-asc');
-                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    // Cycle through states: none -> asc -> desc -> none
+                    if (this.sortState === 'none') {
+                        this.sortState = 'asc';
+                    } else if (this.sortState === 'asc') {
+                        this.sortState = 'desc';
+                    } else {
+                        this.sortState = 'none';
+                    }
 
                     // Remove sort classes from all headers
-                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
-
-                    // Add appropriate class to clicked header
-                    this.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
-
-                    // Sort rows
-                    const sortedRows = rows.sort((a, b) => {
-                        const aText = a.cells[column].textContent.trim();
-                        const bText = b.cells[column].textContent.trim();
-
-                        // Check if values are dates
-                        const aDate = Date.parse(aText);
-                        const bDate = Date.parse(bText);
-
-                        if (!isNaN(aDate) && !isNaN(bDate)) {
-                            return isAsc ? bDate - aDate : aDate - bDate;
-                        }
-
-                        // Regular string comparison
-                        if (isAsc) {
-                            return bText.localeCompare(aText);
-                        } else {
-                            return aText.localeCompare(bText);
-                        }
+                    headers.forEach(h => {
+                        h.classList.remove('sort-asc', 'sort-desc');
+                        if (h !== this) h.sortState = 'none'; // Reset other columns
                     });
 
-                    // Re-append sorted rows
-                    sortedRows.forEach(row => tbody.appendChild(row));
+                    // Apply appropriate class
+                    if (this.sortState === 'asc') {
+                        this.classList.add('sort-asc');
+                    } else if (this.sortState === 'desc') {
+                        this.classList.add('sort-desc');
+                    }
+
+                    // Sort data
+                    if (this.sortState === 'none') {
+                        // Return to original order
+                        filteredData = [...allData];
+                        filterTable(); // Re-apply any active filters
+                    } else {
+                        sortData(column, this.sortState === 'asc');
+                    }
                 });
             });
+        }
+
+        // Filter table
+        function filterTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredData = allData.filter(item => {
+                const matchesSearch =
+                    item.name.toLowerCase().includes(searchTerm) ||
+                    item.description.toLowerCase().includes(searchTerm) ||
+                    item.instructor.toLowerCase().includes(searchTerm) ||
+                    item.when.toLowerCase().includes(searchTerm) ||
+                    item.where.toLowerCase().includes(searchTerm);
+
+                return matchesSearch;
+            });
+
+            populateTable(filteredData);
+        }
+
+        // Sort data
+        function sortData(column, ascending) {
+            const fields = ['name', 'instructor', 'whenSort1', 'where'];
+            const displayFields = ['name', 'instructor', 'when', 'where'];
+
+            let field = fields[column];
+            let displayField = displayFields[column];
+
+            filteredData.sort((a, b) => {
+                // Use whenSort1 for sorting but display when
+                let aVal = field === 'whenSort1' ? (a[field] || a.when) : a[displayField];
+                let bVal = field === 'whenSort1' ? (b[field] || b.when) : b[displayField];
+
+                // Convert to lowercase for string comparison
+                if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+                if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+                if (ascending) {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+
+            populateTable(filteredData);
         }
 
         class TriangularMeshBackground {
@@ -549,8 +579,10 @@
         }
 
         // Load data when page loads
+        /*document.addEventListener('DOMContentLoaded', loadData);*/
+        // Load data when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            loadTableData();
+            loadData();
             new TriangularMeshBackground();
         });
     </script>
