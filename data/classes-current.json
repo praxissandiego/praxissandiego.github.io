@@ -4,7 +4,7 @@
     "id": "architecture-urbanism",
     "description": "A walking tour exploration of four topics in urban design, city planning, and how they relate to the development of San Diego.",
     "instructor": "Dorrie & Megan",
-    "when": "Sat Oct 4,<br>Sun Oct 13,<br>Sat Oct 18 & 25,<br> 4-6pm,<br>4 weeks",
+    "when": "Saturdays 4-6pm,<br>Oct 4-25,<br>4 weeks",
     "start": "Sat, Oct 4",
     "duration": "4 weeks",
     "whenSort1": "1",
@@ -12,28 +12,28 @@
     "link": "classes/fall2025/architecture-urbanism.html"
   },
   {
-    "name": "The Wellbeing Toolkit",
-    "id": "wellbeing-toolkit",
-    "description": "We’ll explore the vast space of modern techniques and ancient practices for feeling better, while maintaining critical thinking.",
-    "instructor": "Alex Krusz",
-    "when": "Mondays 6-7:15pm,<br>Oct 6-27,<br>4 weeks",
-    "start": "Mon, Oct 6",
-    "duration": "4 weeks",
-    "whenSort1": "2",
-    "where": "Serra Mesa,<br>Address provided to enrollees.",
-    "link": "http://krusz.net/wellbeing-toolkit.html"
-  },
-  {
     "name": "Public Power 101",
     "id": "public-power-101",
     "description": "Public Power 101 is a popular education style, four-week class that explores how San Diegans can fight the rising cost of living and build a not-for-profit publicly owned alternative to SDGE through community organizing and public education.",
     "instructor": "Isaiah Glasoe",
-    "when": "Monday Oct 6, and<br>Tuesdays Oct 14-28,<br>6-7:30pm,<br>4 weeks",
+    "when": "Sunday Oct 5, and<br>Tuesdays Oct 14-28,<br>6-7:30pm,<br>4 weeks",
+    "start": "Sun, Oct 6",
+    "duration": "4 weeks",
+    "whenSort1": "2",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/fall2025/public-power-101.html"
+  },
+  {
+    "name": "The Wellbeing Toolkit",
+    "id": "wellbeing-toolkit",
+    "description": "We’ll explore the vast space of modern techniques and ancient practices for feeling better, while maintaining critical thinking.",
+    "instructor": "Alex Krusz",
+    "when": "Mondays 7-8:15pm,<br>Oct 6-27,<br>4 weeks",
     "start": "Mon, Oct 6",
     "duration": "4 weeks",
     "whenSort1": "3",
-    "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/fall2025/public-power-101.html"
+    "where": "Serra Mesa,<br>Address provided to enrollees.",
+    "link": "http://krusz.net/wellbeing-toolkit.html"
   },
   {
     "name": "Erudite Writing Workshop",
