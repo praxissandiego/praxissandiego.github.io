@@ -268,10 +268,10 @@
             <br>
 
             <div class="table-section">
-                <h2>Community University</h2>
+                <h2><a href="university.html">Community University</a></h2>
                 <p></p>
 
-                We are starting a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, this is exactly what we are doing here. Come to learn from your peers, neighbors, and friends, meet others interested in the same things as you, and have fun!
+                We started a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here. <!--Come to learn from your peers, neighbors, and friends, meet others interested in the same things as you, and have fun!-->
                 <br><br>
                 Below are the classes of our inaugural Fall 2025 term:
                 <br><br>
@@ -291,7 +291,7 @@
                     </table>
                 </div>
                 <br>
-                The term starts October 4 and the registration for classes will be open until October 3. If you want to learn more and register, <a href="university.html" class="view-full">click here</a> to visit our community university page.
+                The term started on October 4 and the registration for classes is currently closed. However, we are planning to start the next term in January 2026 and to open the registration in late 2025! If you want to be in the loop, <a href="#apply">fill out our interest form</a>, <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com"> email Praxis San Diego</a> or email the class instructors (see individual class pages).<!--If you want to learn more and register, <a href="university.html" class="view-full">click here</a> to visit our community university page.-->
             </div>
         </div>
 
@@ -322,8 +322,16 @@
                         <td><a href="${item.link}">${item.name}</a></td>
                         <td>${item.start}</td>
                         <td>${item.duration}</td>
+                        <td><a href="${item.link}">Learn more</a></td>
+                    `;
+                    /* Previously
+                    row.innerHTML = `
+                        <td><a href="${item.link}">${item.name}</a></td>
+                        <td>${item.start}</td>
+                        <td>${item.duration}</td>
                         <td><a href="../university.html#apply">Apply here</a></td>
                     `;
+                    */
                     universityBody.appendChild(row);
                 });
 
