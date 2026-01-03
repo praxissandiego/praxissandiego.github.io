@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Is For Everybody - Praxis Community University, Winter 2026</title>
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praxissandiego.com/classes/winter2026/this-is-for-everybody.html">
+    <meta property="og:title" content="This Is For Everybody - Praxis Community University">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="This Is For Everybody - Praxis Community University">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body class="class-page">
+    <canvas id="backgroundCanvas"></canvas>
+    <button id="animationToggle" aria-label="Toggle background animation">⏻︎</button>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1 id="className">This Is For Everybody</h1>
+                </div>
+            </div>
+            <a href="../../university.html" class="back-link" id="backLink">← to Winter 2026 Classes</a>
+        </header>
+
+        <div class="class-info-box">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Schedule:</span>
+                    <span class="info-value" id="when">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Location:</span>
+                    <span class="info-value" id="where">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Apply:</span>
+                    <span class="info-value">
+                        <a href="#apply" class="signup-link">Click here</a>
+                    </span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Questions?</span>
+                    <span class="info-value"><div class="email">Please email
+                      <a id="link-conversion" rel="nofollow, noindex" href="to-:::::::e-v-e-m-c-n--al-l--y97_gma::-il/c:o-m">
+                      evemc<span></span>nal<span>ly</span>97<span>@gmail.c</span>om</a>
+                      and include [This Is For Everybody] in the subject line.</div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-content">
+            <h2>Course Description</h2>
+            <p>
+              In this class you will participate in a series of playful exercises and games. While participating you may feel silly or awkward! We will explore how embracing these feelings can unlock your creative agency. All feelings and observations are welcome :)
+            </p>
+            <p>
+              You may ask yourself, "Why am I doing this?" Great question, why are any of us doing this? Fear not! We will also be exploring how creative agency is just a fancy word for "play" and how play can serve as an antidote to fear.
+            </p>
+            <p>
+              By the end of this class, I hope you will be able to find play in your everyday life to increase creative agency and emotional resilience. This class is truly for everyone, we could all use more play in our lives!
+            </p>
+
+            <h2>Your Instructor</h2>
+            <p>
+              Hi there! I’m Eve. I am super excited to be facilitating this class for you all! The idea for this class sprung about from a number of observations I had while working with children. I wanted to create a class that engages with the same level of play for adults! Thanks for being part of the first iteration of this class. I am <i>beyond</i> excited to get started and to grow it with you all :)
+            </p>
+        </div>
+
+        <div class="application-section" id="apply">
+            <h2>Apply</h2>
+            <p>Want to join? Fill out the application form below!</p>
+
+            <div class="form-embed" id="formContainer">
+                <iframe
+                    src="https://tally.so/embed/44BWAb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    width="100%"
+                    height="600"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    title="Application Form">
+                </iframe>
+                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/link-conversion.js"></script>
+    <script src="../../js/class-page.js"></script>
+    <script src="../../js/background-animation-smallworld.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAndPopulateClassPage(
+                "This Is For Everybody",
+                "Winter 2026",
+                "/data/terms/winter2026.json"
+            );
+            initFormHandler();
+        });
+    </script>
+</body>
+</html>

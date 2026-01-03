@@ -352,6 +352,11 @@ div.email > span:nth-child(2) {
     display: none;
 }
 
+/* Diamond Bulletpoint List */
+ul li::marker {
+  content: "❖ ";
+}
+
 /* Utility Classes */
 .text-center {
     text-align: center;

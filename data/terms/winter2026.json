@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Where Do We Begin",
+    "id": "where-do-we-begin",
+    "description": "A collaborative exploration of how we might repair our fractured world by examining the self, civilizations, ideologies, and truth itself——questioning everything we thought we knew.",
+    "instructor": "Bilal Bikile",
+    "when": "Mondays 7-8:30pm,<br>Jan 19-Mar 16,<br>8 weeks<br>(no class Feb 16)",
+    "start": "Mon, Jan 19",
+    "duration": "8 weeks",
+    "whenSort1": "1",
+    "where": "Deixis Gallery,<br>2173 Logan Ave",
+    "link": "classes/winter2026/where-do-we-begin.html"
+  },
+  {
+    "name": "How To Feel Better",
+    "id": "how-to-feel-better",
+    "description": "In this class we will experientially explore the vast space of modern techniques and ancient practices for increasing well-being, while maintaining critical thinking.<br><br><u>Application deadline: Jan 29</u>",
+    "instructor": "Alex Krusz",
+    "when": "Tuesdays 6:30-8:00pm,<br>Feb 10-Mar 17,<br>5 weeks<br>(no class Feb 17)",
+    "start": "Tue, Feb 10",
+    "duration": "5 weeks",
+    "whenSort1": "2",
+    "where": "Serra Mesa,<br>Address provided to enrollees.",
+    "link": "http://krusz.net/feel-better.html"
+  },
+  {
+    "name": "This Is For Everybody",
+    "id": "this-is-for-everybody",
+    "description": "In this class you will participate in a series of games and playful exercises to increase creativity and emotional resilience.",
+    "instructor": "Eve McNally",
+    "when": "Wednesdays 7:00-9:00pm,<br>Jan 21-Mar 4,<br>6 weeks<br>(no class Feb 18)",
+    "start": "Wed, Jan 21",
+    "duration": "6 weeks",
+    "whenSort1": "3",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/winter2026/this-is-for-everybody.html"
+  },
+  {
+    "name": "Public Power 102",
+    "id": "public-power-102",
+    "description": "Public Power 102 is a popular education style, six-week class that explores how San Diegans can fight the rising cost of living and build a not-for-profit publicly owned alternative to SDGE through community organizing and public education.",
+    "instructor": "Isaiah Glasoe",
+    "when": "Thursdays 6:30-8:00pm,<br>Jan 22-Mar 5,<br>6 weeks<br>(no class Feb 19)",
+    "start": "Jan 22",
+    "duration": "6 weeks",
+    "whenSort1": "4",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/winter2026/public-power-102.html"
+  },
+  {
+    "name": "Erudite Writing Workshop",
+    "id": "erudite-writing-workshop",
+    "description": "This 8-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.",
+    "instructor": "Karyssa Newsome",
+    "when": "Thursdays 7-8:30pm,<br>Jan 22-Mar 19,<br>8 weeks<br>(no class Feb 19)",
+    "start": "Thu, Jan 22",
+    "duration": "8 weeks",
+    "whenSort1": "5",
+    "where": "Deixis Gallery,<br>2173 Logan Ave",
+    "link": "classes/winter2026/erudite-writing-workshop.html"
+  }
+]

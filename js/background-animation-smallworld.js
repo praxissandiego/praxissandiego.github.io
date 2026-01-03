@@ -10,7 +10,8 @@
  * Uses Poisson distribution to determine how many shortcuts swap each check period.
  * Most checks result in 0 swaps, occasionally 1-2, rarely more.
  *
- * Long-distance shortcuts are limited to 1-2 per side for aesthetic reasons.
+ * Long-distance shortcuts (spanning large vertical distances) are limited to 1-2 per side
+ * for better aesthetics.
  */
 class SmallWorldMeshBackground {
     constructor() {
@@ -33,11 +34,12 @@ class SmallWorldMeshBackground {
 
         // Small-world parameters
         this.shortcutDensity = 0.08;
-        this.minShortcutDistance = 3; // Minimum distance multiplier for any shortcut
+        this.minShortcutDistance = 3; // Minimum distance for any shortcut (in spacing units)
 
-        // Distance tier parameters
-        this.longShortcutThreshold = 10; // Distance multiplier above which shortcut is "long"
-        this.maxLongShortcutsPerSide = 1; // Max really long shortcuts per side (1-2 recommended)
+        // Distance categorization thresholds (in spacing units)
+        this.longDistanceThreshold = 6; // Shortcuts >= this are "long"
+        this.maxLongShortcutsPerSide = 2; // Maximum long shortcuts per side
+        this.minLongShortcutsPerSide = 1; // Minimum long shortcuts per side
 
         // Stochastic rewiring parameters
         this.rewireCheckInterval = 60; // Check every N frames (~1 second at 60fps)
@@ -151,30 +153,28 @@ class SmallWorldMeshBackground {
     }
 
     /**
+     * Check if a distance qualifies as "long"
+     */
+    isLongDistance(distance) {
+        return distance >= this.spacing * this.longDistanceThreshold;
+    }
+
+    /**
+     * Count active long shortcuts for a given side
+     */
+    countLongShortcutsForSide(side) {
+        return this.shortcuts.filter(s =>
+            s.side === side &&
+            !s.fadingOut &&
+            s.isLong
+        ).length;
+    }
+
+    /**
      * Get the key for a node pair (order-independent)
      */
     getEdgeKey(id1, id2) {
         return id1 < id2 ? `${id1}-${id2}` : `${id2}-${id1}`;
-    }
-
-    /**
-     * Check if a distance qualifies as "long"
-     */
-    isLongDistance(dist) {
-        return dist >= this.spacing * this.longShortcutThreshold;
-    }
-
-    /**
-     * Count current long shortcuts for a given side (excluding those fading out)
-     */
-    countLongShortcutsForSide(side) {
-        return this.shortcuts.filter(s => {
-            if (s.side !== side || s.fadingOut) return false;
-            const source = this.nodes[s.sourceId];
-            const target = this.nodes[s.targetId];
-            const dist = this.getBaseDistance(source, target);
-            return this.isLongDistance(dist);
-        }).length;
     }
 
     /**
@@ -184,24 +184,58 @@ class SmallWorldMeshBackground {
         const leftNodes = this.nodes.filter(n => n.side === 'left');
         const rightNodes = this.nodes.filter(n => n.side === 'right');
 
-        this.createShortcutsForSide(leftNodes);
-        this.createShortcutsForSide(rightNodes);
+        this.createShortcutsForSide(leftNodes, 'left');
+        this.createShortcutsForSide(rightNodes, 'right');
     }
 
-    createShortcutsForSide(sideNodes) {
+    createShortcutsForSide(sideNodes, side) {
         if (sideNodes.length < 2) return;
 
         const numShortcuts = Math.max(1, Math.floor(sideNodes.length * this.shortcutDensity));
         const existingKeys = new Set(this.shortcuts.map(s => this.getEdgeKey(s.sourceId, s.targetId)));
         const minDist = this.spacing * this.minShortcutDistance;
-        const longDist = this.spacing * this.longShortcutThreshold;
-        const side = sideNodes[0].side;
+        const longDist = this.spacing * this.longDistanceThreshold;
 
         let attempts = 0;
         let created = 0;
-        let longCount = 0;
+        let longCreated = 0;
 
-        while (created < numShortcuts && attempts < numShortcuts * 15) {
+        // First, ensure we have the minimum number of long shortcuts
+        while (longCreated < this.minLongShortcutsPerSide && attempts < 100) {
+            attempts++;
+
+            const sourceIdx = Math.floor(Math.random() * sideNodes.length);
+            const targetIdx = Math.floor(Math.random() * sideNodes.length);
+
+            if (sourceIdx === targetIdx) continue;
+
+            const source = sideNodes[sourceIdx];
+            const target = sideNodes[targetIdx];
+
+            const dist = this.getBaseDistance(source, target);
+            if (dist < longDist) continue; // Must be long
+
+            const key = this.getEdgeKey(source.id, target.id);
+            if (existingKeys.has(key)) continue;
+
+            existingKeys.add(key);
+            this.shortcuts.push({
+                sourceId: source.id,
+                targetId: target.id,
+                side: side,
+                opacity: 1,
+                fadingOut: false,
+                fadingIn: false,
+                isLong: true,
+                distance: dist
+            });
+            created++;
+            longCreated++;
+        }
+
+        // Now create the rest, preferring medium distance
+        attempts = 0;
+        while (created < numShortcuts && attempts < numShortcuts * 10) {
             attempts++;
 
             const sourceIdx = Math.floor(Math.random() * sideNodes.length);
@@ -215,11 +249,10 @@ class SmallWorldMeshBackground {
             const dist = this.getBaseDistance(source, target);
             if (dist < minDist) continue;
 
-            // Check if this would be a long shortcut
             const isLong = dist >= longDist;
-            if (isLong && longCount >= this.maxLongShortcutsPerSide) {
-                continue; // Skip, we have enough long shortcuts
-            }
+
+            // Skip if this would exceed max long shortcuts
+            if (isLong && longCreated >= this.maxLongShortcutsPerSide) continue;
 
             const key = this.getEdgeKey(source.id, target.id);
             if (existingKeys.has(key)) continue;
@@ -231,28 +264,31 @@ class SmallWorldMeshBackground {
                 side: side,
                 opacity: 1,
                 fadingOut: false,
-                fadingIn: false
+                fadingIn: false,
+                isLong: isLong,
+                distance: dist
             });
             created++;
-            if (isLong) longCount++;
+            if (isLong) longCreated++;
         }
     }
 
     /**
-     * Create a single new shortcut for a given side, avoiding existing edges
-     * Respects the long-shortcut limit
+     * Create a single new shortcut for a given side, respecting long-distance limits
+     * @param {string} side - 'left' or 'right'
+     * @param {boolean|null} preferLong - true to prefer long, false to prefer medium, null for either
      */
-    createSingleShortcut(side) {
+    createSingleShortcut(side, preferLong = null) {
         const sideNodes = this.nodes.filter(n => n.side === side);
         if (sideNodes.length < 2) return null;
 
         const existingKeys = new Set(this.shortcuts.map(s => this.getEdgeKey(s.sourceId, s.targetId)));
         const minDist = this.spacing * this.minShortcutDistance;
-        const longDist = this.spacing * this.longShortcutThreshold;
+        const longDist = this.spacing * this.longDistanceThreshold;
 
-        // Check how many long shortcuts we currently have for this side
         const currentLongCount = this.countLongShortcutsForSide(side);
         const canAddLong = currentLongCount < this.maxLongShortcutsPerSide;
+        const needsLong = currentLongCount < this.minLongShortcutsPerSide;
 
         let attempts = 0;
         const maxAttempts = 50;
@@ -271,11 +307,15 @@ class SmallWorldMeshBackground {
             const dist = this.getBaseDistance(source, target);
             if (dist < minDist) continue;
 
-            // Check if this would be a long shortcut
             const isLong = dist >= longDist;
-            if (isLong && !canAddLong) {
-                continue; // Skip long shortcuts if we're at the limit
-            }
+
+            // Enforce long-distance constraints
+            if (isLong && !canAddLong) continue; // Can't add more long ones
+            if (needsLong && !isLong) continue; // Need a long one, skip medium
+
+            // If we have a preference, try to match it (but don't fail if we can't)
+            if (preferLong === true && !isLong && attempts < maxAttempts / 2) continue;
+            if (preferLong === false && isLong && attempts < maxAttempts / 2) continue;
 
             const key = this.getEdgeKey(source.id, target.id);
             if (existingKeys.has(key)) continue;
@@ -286,7 +326,9 @@ class SmallWorldMeshBackground {
                 side: side,
                 opacity: 0,
                 fadingOut: false,
-                fadingIn: true
+                fadingIn: true,
+                isLong: isLong,
+                distance: dist
             };
         }
 
@@ -311,18 +353,37 @@ class SmallWorldMeshBackground {
 
         if (actualSwaps === 0) return;
 
-        // Randomly select shortcuts to swap out
-        const shuffled = [...activeShortcuts].sort(() => Math.random() - 0.5);
-        const toRemove = shuffled.slice(0, actualSwaps);
+        // Separate by side and type for smarter swapping
+        const leftShortcuts = activeShortcuts.filter(s => s.side === 'left');
+        const rightShortcuts = activeShortcuts.filter(s => s.side === 'right');
 
-        // Mark selected shortcuts to fade out
+        // Randomly select shortcuts to swap out, but protect minimum long shortcuts
+        const selectSwappable = (shortcuts, side) => {
+            const longOnes = shortcuts.filter(s => s.isLong);
+            const mediumOnes = shortcuts.filter(s => !s.isLong);
+
+            // If we only have the minimum long shortcuts, prefer swapping medium ones
+            if (longOnes.length <= this.minLongShortcutsPerSide && mediumOnes.length > 0) {
+                return mediumOnes;
+            }
+            return shortcuts;
+        };
+
+        const swappableLeft = selectSwappable(leftShortcuts, 'left');
+        const swappableRight = selectSwappable(rightShortcuts, 'right');
+        const allSwappable = [...swappableLeft, ...swappableRight];
+
+        if (allSwappable.length === 0) return;
+
+        const shuffled = [...allSwappable].sort(() => Math.random() - 0.5);
+        const toRemove = shuffled.slice(0, Math.min(actualSwaps, allSwappable.length));
+
+        // Mark selected shortcuts to fade out and create replacements
         for (const shortcut of toRemove) {
             shortcut.fadingOut = true;
-        }
 
-        // Create new shortcuts to replace them (matching sides)
-        for (const oldShortcut of toRemove) {
-            const newShortcut = this.createSingleShortcut(oldShortcut.side);
+            // Try to replace with same type (long/medium), but allow flexibility
+            const newShortcut = this.createSingleShortcut(shortcut.side, shortcut.isLong);
             if (newShortcut) {
                 this.shortcuts.push(newShortcut);
             }
