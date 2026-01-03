@@ -1,0 +1,431 @@
+/* ========================================
+   Praxis San Diego - Main Stylesheet
+   ======================================== */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: #f8fafb;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Canvas Background */
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Animation Toggle Button */
+#animationToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#animationToggle:hover {
+    background-color: #333;
+}
+
+#animationToggle.paused {
+    background-color: #666;
+}
+
+/* Container */
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    background-color: #f8fafb;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    margin-bottom: 3rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.8rem 0;
+    font-weight: 700;
+}
+
+/* Links */
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Description Section */
+.description {
+    margin-bottom: 2rem;
+}
+
+/* Paragraph Spacing (replaces <br><br>) */
+.description p,
+.custom-content p,
+.section p {
+    margin-bottom: 1rem;
+}
+
+.description p:last-child,
+.custom-content p:last-child,
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    font-family: 'Space Mono', monospace;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Table Styles */
+.table-wrapper {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    vertical-align: top;
+}
+
+th:hover {
+    background-color: #ebebeb;
+}
+
+th::after {
+    content: ' ↕';
+    opacity: 0.3;
+    font-size: 0.8em;
+}
+
+th.sort-asc::after {
+    content: ' ↑';
+    opacity: 1;
+}
+
+th.sort-desc::after {
+    content: ' ↓';
+    opacity: 1;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+td a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.class-name {
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.class-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Stats */
+.stats {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Table Column Widths - Default (4 column tables like university.html) */
+.table-4col th:nth-child(1), .table-4col td:nth-child(1) { width: 33%; }
+.table-4col th:nth-child(2), .table-4col td:nth-child(2) { width: 20%; }
+.table-4col th:nth-child(3), .table-4col td:nth-child(3) { width: 28%; }
+.table-4col th:nth-child(4), .table-4col td:nth-child(4) { width: 19%; }
+
+/* Table Column Widths - Index page (4 column simplified) */
+.table-index th:nth-child(1), .table-index td:nth-child(1) { width: 44%; }
+.table-index th:nth-child(2), .table-index td:nth-child(2) { width: 20%; }
+.table-index th:nth-child(3), .table-index td:nth-child(3) { width: 16%; }
+.table-index th:nth-child(4), .table-index td:nth-child(4) { width: 20%; }
+
+/* Class Info Box (for individual class pages) */
+.class-info-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.info-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.info-item-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label-vertical {
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.info-label {
+    font-weight: 700;
+    color: #666;
+    flex-shrink: 0;
+    min-width: 100px;
+    text-align: right;
+}
+
+.info-value {
+    color: #333;
+}
+
+/* Description Section */
+.description-section {
+    margin: 2rem 0;
+}
+
+/* Custom Content (class pages) */
+.custom-content {
+    margin: 3rem 0;
+}
+
+.custom-content p {
+    margin-bottom: 1rem;
+}
+
+.custom-content ul, .custom-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.custom-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Application Section */
+.application-section {
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid #ddd;
+}
+
+/* Form Embed */
+.form-embed {
+    margin-top: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    min-height: 500px;
+}
+
+.loading-message {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+/* Email obfuscation */
+div.email > span:nth-child(2) {
+    display: none;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.announcement {
+    color: red;
+    font-size: 125%;
+}
+
+/* Image Floats (for class pages with instructor photos) */
+.image-left {
+    float: left;
+    margin: 0 20px 0px 0;
+}
+
+.image-right {
+    float: right;
+    margin: 0px 0 0px 20px;
+}
+
+/* Container image sizing */
+.container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Clear float after container */
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Section spacing */
+.section {
+    margin-bottom: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Class page specific - smaller header margin */
+.class-page header {
+    margin-bottom: 1rem;
+}
+
+.class-page h1 {
+    margin-bottom: 0.5rem;
+}

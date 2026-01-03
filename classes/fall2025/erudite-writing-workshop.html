@@ -3,269 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Name - Praxis Community University</title>
+    <title>Erudite Writing Workshop - Praxis Community University, Fall 2025</title>
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praxissandiego.com/classes/fall2025/erudite-writing-workshop.html">
+    <meta property="og:title" content="Erudite Writing Workshop - Praxis Community University">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Erudite Writing Workshop - Praxis Community University">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="../../css/main.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Space Mono', monospace;
-            background-color: #f8fafb;
-            color: #333;
-            line-height: 1.6;
-            padding: 2rem 0;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Canvas background */
-        #backgroundCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Animation toggle button */
-        #animationToggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        #animationToggle:hover {
-            background-color: #333;
-        }
-
-        #animationToggle.paused {
-            background-color: #666;
-        }
-
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            background-color: #f8fafb;
-            z-index: 1;
-        }
-
-        header {
-            margin-bottom: 1rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 0.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem 0;
-            font-weight: 700;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.8rem 0;
-            font-weight: 700;
-        }
-
-        .back-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .class-info-box {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .info-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .info-item-vertical {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-label-vertical {
-            font-weight: 700;
-            color: #666;
-            margin-bottom: 0.3rem;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: row;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-
-        .info-label {
-            font-weight: 700;
-            color: #666;
-            flex-shrink: 0;
-            min-width: 100px;
-            text-align: right;
-        }
-
-        .info-value {
-            color: #333;
-        }
-
-        .description-section {
-            margin: 2rem 0;
-        }
-
-        .custom-content {
-            margin: 3rem 0;
-        }
-
-        .custom-content p {
-            margin-bottom: 1rem;
-        }
-
-        .custom-content ul, .custom-content ol {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .custom-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .application-section {
-            margin-top: 2rem;
-            padding-top: 0.5rem;
-            border-top: 2px solid #ddd;
-        }
-
-        .form-embed {
-            margin-top: 1.5rem;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 1rem;
-            min-height: 500px;
-        }
-
-        .loading-message {
-            text-align: center;
-            color: #666;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-        }
-
-        th, td {
+        /* Page-specific styles for schedule table and instructor images */
+        .schedule-table td {
             padding: 0.5rem;
-            text-align: left;
             vertical-align: top;
         }
-
-        .image-left {
+        .schedule-table td:first-child {
+            white-space: nowrap;
+            font-weight: bold;
+        }
+        .instructor-images {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-right: 20px;
             float: left;
-            margin: 0 20px 0px 0;
         }
-
-        .image-right {
-            float: right;
-            margin: 0px 0 0px 20px;
-        }
-
-        .container img {
+        .instructor-images img {
             width: 250px;
             height: 250px;
             object-fit: cover;
         }
-
-        .container p {
+        .instructor-section {
+            overflow: hidden;
+        }
+        .instructor-section p {
             text-align: justify;
-            line-height: 1.6;
         }
-
-        /* Clear float after container */
-        .container::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        div.email > span:nth-child(2) {
-          display: none;
+        @media (max-width: 768px) {
+            .instructor-images {
+                float: none;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     </style>
-
-    <script src="link-conversion.js" defer></script>
 </head>
-<body>
+<body class="class-page">
     <canvas id="backgroundCanvas"></canvas>
-    <button id="animationToggle">⏻︎</button>
+    <button id="animationToggle" aria-label="Toggle background animation">⏻︎</button>
 
     <div class="container">
         <header>
             <div class="header-content">
                 <div>
-                    <h1 id="className">Loading...</h1>
+                    <h1 id="className">Erudite Writing Workshop</h1>
                 </div>
             </div>
-            <a href="../../university.html" class="back-link" id="backLink">← to Classes</a>
+            <a href="../../university.html" class="back-link" id="backLink">← to Fall 2025 Classes</a>
         </header>
 
-        <!-- Basic Info Box - Automatically populated from JSON -->
         <div class="class-info-box">
             <div class="info-grid">
                 <div class="info-item">
@@ -285,379 +87,186 @@
                 <div class="info-item">
                     <span class="info-label">Questions?</span>
                     <span class="info-value"><div class="email">Please email
-                      <a id="link-conversion" rel="nofollow, noindex" href="t:o-er:udit-esd_gmail/co-m">
-                      erud<span>itesd@gm</span><span>ail.co</span>m</a> and include [Erudite Writing Workshop] in the subject line.</div>
+                        <a id="link-conversion" rel="nofollow, noindex" href="t:o-er:udit-esd_gmail/co-m">
+                        erud<span>itesd@gm</span><span>ail.co</span>m</a> and include [Erudite Writing Workshop] in the subject line.</div>
                     </span>
                 </div>
             </div>
         </div>
 
-        <!-- CUSTOM CONTENT SECTION - Add your own content here -->
         <div class="custom-content">
             <h2>Course Description</h2>
             <p>
-              This 8-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.
+                This 8-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.
             </p>
 
             <h3>Learning Goals</h3>
-            <p>
-              By the end of the workshop, participants will:
-              <ul>
+            <p>By the end of the workshop, participants will:</p>
+            <ul>
                 <li>Develop a regular writing practice through prompts and exercises.</li>
                 <li>Strengthen core writing skills including tone, voice, setting, mood, dialogue, and scene-building.</li>
                 <li>Engage in constructive critique and learn to give and receive feedback.</li>
                 <li>Create at least one polished piece for a final presentation or reading.</li>
-              </ul>
-            </p>
+            </ul>
 
             <h3>Workshop Activities</h3>
-            <p>
-              <ul>
+            <ul>
                 <li>Warm-up: Short generative exercise to get ideas flowing.</li>
                 <li>Mini-lesson: Discussion of a writing craft concept with examples.</li>
                 <li>Writing Time: Guided prompt or free writing.</li>
                 <li>Sharing & Feedback: Voluntary read-alouds or small-group critiques.</li>
-              </ul>
-            </p>
+            </ul>
 
             <h3>Meeting Schedule</h3>
-            <table>
-              <tr>
-                <td><strong>Meeting 1</strong></td>
-                <td>
-                  <strong>Foundations for Creative Writing</strong>
-                  <ul>
-                    <li>Intros</li>
-                    <li>Course Description</li>
-                    <li><i>Furor Scribendi</i></li>
-                    <li>Reading to Write; Word Horde</li>
-                    <li>Project Ideas?</li>
-                    <li>Generative Session, Prompt Bucket</li>
-                    <li>Sign Up for Critique Session 1 Open</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 2</strong></td>
-                  <td>
-                      <strong>Creative Writing Tool Kit</strong>
-                      <ul>
-                          <li>Critique and Collab Tool Kit</li>
-                          <li>Elements of Narrative</li>
-                          <li>Tools to Enhance Writing</li>
-                          <li>Generative Session</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 3</strong></td>
-                  <td>
-                      <strong>Critique Session #1 & #2</strong>
-                      <ul>
-                          <li>Two participants share work for in-depth feedback.</li>
-                          <li>Discussion on how to give and receive critique.</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 4</strong></td>
-                  <td>
-                      <strong>Dialogue and Character</strong>
-                      <ul>
-                          <li>Examples, tools</li>
-                          <li>Generative Session</li>
-                          <li>Critique Sign Up</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 5</strong></td>
-                  <td>
-                      <strong>Setting, Mood, Scene</strong>
-                      <ul>
-                          <li>Examples, tools</li>
-                          <li>Generative session</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 6</strong></td>
-                  <td>
-                      <strong>Critique Session #3 & #4</strong>
-                      <ul>
-                          <li>Continued peer feedback.</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 7</strong></td>
-                  <td>
-                      <strong>Generative Session</strong>
-                      <ul>
-                          <li>Prompt Marathon</li>
-                      </ul>
-                  </td>
-              </tr>
-              <tr>
-                  <td><strong>Meeting 8</strong></td>
-                  <td>
-                      <strong>Critique Session #5 & #6</strong>
-                      <ul>
-                          <li>Peer feedback and discussion</li>
-                          <li>Wrap up</li>
-                      </ul>
-                  </td>
-              </tr>
+            <table class="schedule-table">
+                <tr>
+                    <td>Meeting 1</td>
+                    <td>
+                        <strong>Foundations for Creative Writing</strong>
+                        <ul>
+                            <li>Intros</li>
+                            <li>Course Description</li>
+                            <li><em>Furor Scribendi</em></li>
+                            <li>Reading to Write; Word Horde</li>
+                            <li>Project Ideas?</li>
+                            <li>Generative Session, Prompt Bucket</li>
+                            <li>Sign Up for Critique Session 1 Open</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 2</td>
+                    <td>
+                        <strong>Creative Writing Tool Kit</strong>
+                        <ul>
+                            <li>Critique and Collab Tool Kit</li>
+                            <li>Elements of Narrative</li>
+                            <li>Tools to Enhance Writing</li>
+                            <li>Generative Session</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 3</td>
+                    <td>
+                        <strong>Critique Session #1 & #2</strong>
+                        <ul>
+                            <li>Two participants share work for in-depth feedback.</li>
+                            <li>Discussion on how to give and receive critique.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 4</td>
+                    <td>
+                        <strong>Dialogue and Character</strong>
+                        <ul>
+                            <li>Examples, tools</li>
+                            <li>Generative Session</li>
+                            <li>Critique Sign Up</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 5</td>
+                    <td>
+                        <strong>Setting, Mood, Scene</strong>
+                        <ul>
+                            <li>Examples, tools</li>
+                            <li>Generative session</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 6</td>
+                    <td>
+                        <strong>Critique Session #3 & #4</strong>
+                        <ul>
+                            <li>Continued peer feedback.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 7</td>
+                    <td>
+                        <strong>Generative Session</strong>
+                        <ul>
+                            <li>Prompt Marathon</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meeting 8</td>
+                    <td>
+                        <strong>Critique Session #5 & #6</strong>
+                        <ul>
+                            <li>Peer feedback and discussion</li>
+                            <li>Wrap up</li>
+                        </ul>
+                    </td>
+                </tr>
             </table>
 
             <h3>Readings & Materials</h3>
             <ul>
-              <li>“Positive Obsession” and “Furor Scribendi” by Octavia E. Butler (Week 1).</li>
+                <li>"Positive Obsession" and "Furor Scribendi" by Octavia E. Butler (Week 1).</li>
             </ul>
 
             <h3>Expectations</h3>
             <ul>
-              <li>Participate actively and respectfully in discussions.</li>
-              <li>Submit work on time for critique weeks.</li>
-              <li>Maintain a supportive environment where all voices are valued.</li>
+                <li>Participate actively and respectfully in discussions.</li>
+                <li>Submit work on time for critique weeks.</li>
+                <li>Maintain a supportive environment where all voices are valued.</li>
             </ul>
 
             <h3>Submission Guidelines</h3>
             <ul>
-              <li>Submissions are due one (1) week prior to critique to ensure everyone has time to read and annotate work. </li>
-              <li>Limit your submissions to 10 pages double spaced. Each piece will get 30 minutes of focus from the group. </li>
+                <li>Submissions are due one (1) week prior to critique to ensure everyone has time to read and annotate work.</li>
+                <li>Limit your submissions to 10 pages double spaced. Each piece will get 30 minutes of focus from the group.</li>
             </ul>
 
             <h2>About the Instructor</h2>
-            <table>
-              <tr>
-                <td>
-                  <table>
-                    <tr><img src="../../data/kn1.png" alt="kn1.png" class="image-left"></tr>
-                    <tr><img src="../../data/kn2.png" alt="kn1.png" class="image-left"></tr>
-                  </table>
-                </td>
-                <td>
-                  <p>
-                    <b>Karyssa Newsome</b> is a San Diego native and Alum of San Diego State University. She graduated with honors from the School of Arts and Letters with a Bachelors in English and minor in Digital and Social Media Studies. An avid reader and persistent writer for most of her life, she now works in the sphere of equitable education and literacy for all. In 2025 she founded Erudite, a literacy initiative dedicated to inspiring empathy and championing literacy in our communities. In her spare time she enjoys roller skating down the boardwalk, listening to music, and sharing delicious meals with friends.
-                  </p>
-                </td>
-              </tr>
-            </table>
-
+            <div class="instructor-section">
+                <div class="instructor-images">
+                    <img src="/data/kn1.png" alt="Karyssa Newsome">
+                    <img src="/data/kn2.png" alt="Karyssa Newsome">
+                </div>
+                <p>
+                    <strong>Karyssa Newsome</strong> is a San Diego native and Alum of San Diego State University. She graduated with honors from the School of Arts and Letters with a Bachelors in English and minor in Digital and Social Media Studies. An avid reader and persistent writer for most of her life, she now works in the sphere of equitable education and literacy for all. In 2025 she founded Erudite, a literacy initiative dedicated to inspiring empathy and championing literacy in our communities. In her spare time she enjoys roller skating down the boardwalk, listening to music, and sharing delicious meals with friends.
+                </p>
+            </div>
         </div>
 
-        <!-- Application Form Section -->
         <div class="application-section" id="apply">
             <h2>Apply</h2>
             <p>Want to join? Fill out the application form below!</p>
 
             <div class="form-embed" id="formContainer">
-              <iframe
-                  src="https://tally.so/embed/mKXVpM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                  width="100%"
-                  height="600"
-                  frameborder="0"
-                  marginheight="0"
-                  marginwidth="0"
-                  title="Application Form">
-              </iframe>
-              <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                <iframe
+                    src="https://tally.so/embed/mKXVpM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    width="100%"
+                    height="600"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    title="Application Form">
+                </iframe>
+                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
             </div>
         </div>
     </div>
 
+    <script src="../../js/link-conversion.js"></script>
+    <script src="../../js/class-page.js"></script>
+    <script src="../../js/background-animation-smallworld.js"></script>
     <script>
-        // CONFIGURATION - Set this to match the class in your JSON
-        const CLASS_NAME = "Erudite Writing Workshop"; // Change this for each class page
-        const TERM = "Fall 2025"; // Change this for the correct term
-
-        // Load class data from JSON
-        async function loadClassData() {
-            try {
-                const response = await fetch('../../data/classes-current.json');
-                const allClasses = await response.json();
-
-                // Find the specific class
-                const classData = allClasses.find(c => c.name === CLASS_NAME);
-
-                if (classData) {
-                    // Populate the page with data from JSON and other variables
-                    document.getElementById('backLink').textContent = "← to "+TERM+" Classes";
-                    document.getElementById('backLink').href = "../../university.html#"+classData.id;
-                    document.getElementById('className').textContent = classData.name;
-                    // Only update 'when' if it still says "Loading..."
-                    const whenElement = document.getElementById('when');
-                    if (whenElement.textContent === 'Loading...') {
-                        whenElement.innerHTML = classData.when.replace(/<br>/g, '<br>');
-                    }
-                    // Only update 'where' if it still says "Loading..."
-                    const whereElement = document.getElementById('where');
-                    if (whereElement.textContent === 'Loading...') {
-                        whereElement.innerHTML = classData.where.replace(/<br>/g, '<br>');
-                    }
-
-                    // Update page title
-                    document.title = `${classData.name} - Praxis Community University, `+TERM;
-                } else {
-                    console.error('Class not found in JSON');
-                    document.getElementById('className').textContent = 'Class Not Found';
-                }
-            } catch (error) {
-                console.error('Error loading class data:', error);
-            }
-        }
-
-        // Hide loading message when iframe loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.querySelector('#formContainer iframe');
-            const loadingMessage = document.querySelector('.loading-message');
-
-            if (iframe) {
-                iframe.addEventListener('load', function() {
-                    if (loadingMessage) {
-                        loadingMessage.style.display = 'none';
-                    }
-                });
-            }
-        });
-
-        // Animated triangular mesh background
-        class TriangularMeshBackground {
-            constructor() {
-                this.canvas = document.getElementById('backgroundCanvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.nodes = [];
-                this.time = 0;
-                this.contentWidth = 900; // Max width of content
-                this.contentPadding = 50; // Extra padding around content
-                this.isAnimating = true;
-
-                this.init();
-                this.animate();
-
-                // Handle resize
-                window.addEventListener('resize', () => this.init());
-
-                // Handle animation toggle
-                const toggleBtn = document.getElementById('animationToggle');
-                toggleBtn.addEventListener('click', () => {
-                    this.isAnimating = !this.isAnimating;
-                    toggleBtn.textContent = this.isAnimating ? '⏻︎' : '⏻︎';
-                    toggleBtn.classList.toggle('paused', !this.isAnimating);
-                });
-            }
-
-            init() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-
-                // Clear existing nodes
-                this.nodes = [];
-
-                // Calculate content area to avoid
-                const contentLeft = (this.canvas.width - this.contentWidth) / 2 - this.contentPadding;
-                const contentRight = (this.canvas.width + this.contentWidth) / 2 + this.contentPadding;
-
-                // Create irregular triangular grid with more randomness
-                const baseSpacing = 60; // Base distance between nodes
-                const rows = Math.ceil(this.canvas.height / (baseSpacing * 0.866)) + 2;
-                const cols = Math.ceil(this.canvas.width / baseSpacing) + 2;
-
-                for (let row = -1; row < rows; row++) {
-                    for (let col = -1; col < cols; col++) {
-                        // Add significant randomness to positions
-                        const randomOffsetX = (Math.random() - 0.5) * baseSpacing * 0.6;
-                        const randomOffsetY = (Math.random() - 0.5) * baseSpacing * 0.6;
-
-                        const x = col * baseSpacing + (row % 2) * (baseSpacing / 2) + randomOffsetX;
-                        const y = row * baseSpacing * 0.866 + randomOffsetY;
-
-                        // Only add nodes that are outside the content area
-                        if (x < contentLeft || x > contentRight) {
-                            this.nodes.push({
-                                x: x,
-                                y: y,
-                                baseX: x,
-                                baseY: y,
-                                offsetX: Math.random() * 15 - 7.5,
-                                offsetY: Math.random() * 15 - 7.5,
-                                phase: Math.random() * Math.PI * 2,
-                                amplitude: 8 + Math.random() * 12, // Increased amplitude for more noticeable sway
-                                speed: 0.8 + Math.random() * 0.4 // Variable speed for each node
-                            });
-                        }
-                    }
-                }
-
-                // Store content boundaries for connection drawing
-                this.contentLeft = contentLeft;
-                this.contentRight = contentRight;
-                this.spacing = baseSpacing;
-            }
-
-            drawConnections() {
-                this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)'; // Black edges
-                this.ctx.lineWidth = 1;
-
-                // Draw connections between nearby nodes
-                for (let i = 0; i < this.nodes.length; i++) {
-                    const node1 = this.nodes[i];
-
-                    for (let j = i + 1; j < this.nodes.length; j++) {
-                        const node2 = this.nodes[j];
-                        const dist = Math.sqrt(
-                            Math.pow(node2.x - node1.x, 2) +
-                            Math.pow(node2.y - node1.y, 2)
-                        );
-
-                        // Connect nodes that are close (using current positions for more organic look)
-                        if (dist < this.spacing * 1.5) {
-                            this.ctx.beginPath();
-                            this.ctx.moveTo(node1.x, node1.y);
-                            this.ctx.lineTo(node2.x, node2.y);
-                            this.ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            animate() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-                // Update node positions only if animating
-                if (this.isAnimating) {
-                    this.time += 0.015; // Slightly faster for more noticeable movement
-                }
-
-                this.nodes.forEach(node => {
-                    if (this.isAnimating) {
-                        node.x = node.baseX + node.offsetX +
-                               Math.sin(this.time * node.speed + node.phase) * node.amplitude;
-                        node.y = node.baseY + node.offsetY +
-                               Math.cos(this.time * node.speed * 0.7 + node.phase) * node.amplitude * 0.7;
-                    }
-                });
-
-                // Draw connections first
-                this.drawConnections();
-
-                // Draw nodes in black
-                this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // Black nodes
-                this.nodes.forEach(node => {
-                    this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2); // Slightly larger nodes
-                    this.ctx.fill();
-                });
-
-                requestAnimationFrame(() => this.animate());
-            }
-        }
-
-        // Load data when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            loadClassData();
-            new TriangularMeshBackground();
+            loadAndPopulateClassPage(
+                "Erudite Writing Workshop",
+                "Fall 2025",
+                "/data/classes-current.json"
+            );
+            initFormHandler();
         });
     </script>
 </body>

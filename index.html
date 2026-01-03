@@ -4,279 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praxis San Diego</title>
+    <meta name="description" content="(Re)building practices for living good lives in community.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praxissandiego.com/">
+    <meta property="og:title" content="Praxis San Diego">
+    <meta property="og:description" content="(Re)building practices for living good lives in community.">
+    <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Praxis San Diego">
+    <meta name="twitter:description" content="(Re)building practices for living good lives in community.">
+    <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Space Mono', monospace;
-            background-color: #f8fafb;
-            color: #333;
-            line-height: 1.6;
-            padding: 2rem 0;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Canvas background */
-        #backgroundCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Animation toggle button */
-        #animationToggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        #animationToggle:hover {
-            background-color: #333;
-        }
-
-        #animationToggle.paused {
-            background-color: #666;
-        }
-
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            background-color: #f8fafb;
-            z-index: 1;
-        }
-
-        header {
-            margin-bottom: 3rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 0.1rem;
-            font-weight: 700;
-        }
-
-        .back-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .description {
-            margin-bottom: 2rem;
-        }
-
-        .controls {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .search-box input {
-            width: 100%;
-            font-family: 'Space Mono', monospace;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .table-wrapper {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 0.5rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
-
-
-        th:nth-child(1), td:nth-child(1) { width: 44%; }
-        th:nth-child(2), td:nth-child(2) { width: 20%; }
-        th:nth-child(3), td:nth-child(3) { width: 16%; }
-        th:nth-child(4), td:nth-child(4) { width: 20%; }
-
-        .class-name {
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .class-description {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        th {
-            background-color: #f5f5f5;
-            font-weight: 700;
-            cursor: pointer;
-            user-select: none;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            vertical-align: top;
-        }
-
-        th:hover {
-            background-color: #ebebeb;
-        }
-
-        th::after {
-            content: ' ↕';
-            opacity: 0.3;
-            font-size: 0.8em;
-        }
-
-        th.sort-asc::after {
-            content: ' ↑';
-            opacity: 1;
-        }
-
-        th.sort-desc::after {
-            content: ' ↓';
-            opacity: 1;
-        }
-
-        tr:hover {
-            background-color: #f9f9f9;
-        }
-
-        td a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        td a:hover {
-            text-decoration: underline;
-        }
-
-        .stats {
-            margin-top: 1rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 1000px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .table-wrapper {
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 600px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <canvas id="backgroundCanvas"></canvas>
-    <button id="animationToggle">⏻︎</button>
+    <button id="animationToggle" aria-label="Toggle background animation">⏻︎</button>
 
     <div class="container">
         <header>
-            <center><h1>PRAXIS SAN DIEGO</h1></center>
+            <h1 class="text-center">PRAXIS SAN DIEGO</h1>
         </header>
 
         <div class="section description">
-          <h2>What Is This All About?</h2>
+            <h2>What Is This All About?</h2>
             <p>
-              It's hard to live a good life without a broad and supportive community. It's also hard to do it without a tight-knit circle of those who we want to share our life with both in adventures and in mundanities.
-              <br><br>
-              We are, in short, a small, but growing group of friends living in San Diego who are working on (re)building the practices that help us to do that. Inspired by <a href="https://fractalnyc.com/">Fractal NYC</a> and <a href="https://fractalnyc.com/#:~:text=Alumni%20of%20Our%20Neighborhood%20Accelerator">other civicas around the world</a>, we are building our own intentional community here, one step at a time. Below you can find some details of what we've been up to.
-              <br><br>
-              If this resonates with you, don't hold back and reach out to us!
+                It's hard to live a good life without a broad and supportive community. It's also hard to do it without a tight-knit circle of those who we want to share our life with both in adventures and in mundanities.
+            </p>
+            <p>
+                We are, in short, a small, but growing group of friends living in San Diego who are working on (re)building the practices that help us to do that. Inspired by <a href="https://fractalnyc.com/">Fractal NYC</a> and <a href="https://fractalnyc.com/#:~:text=Alumni%20of%20Our%20Neighborhood%20Accelerator">other civicas around the world</a>, we are building our own intentional community here, one step at a time. Below you can find some details of what we've been up to.
+            </p>
+            <p>
+                If this resonates with you, don't hold back and reach out to us!
             </p>
         </div>
 
         <div class="section">
             <div class="table-section">
                 <h2>Events</h2>
-                <b>Bi-weekly hang outs:</b> soon we will start hosting bi-weekly hang outs, jams where you can enjoy your time with others —— talk, have food, play boardgames ——  but also do something on your own —— read, work on a craft, or finish a project —— just in the company of others! Everyone is welcome to join and participate in whatever is happening or bring their own activity.
-
-                <br><br>
-
-                <b>Independent research group:</b> every Monday we hold an independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share our progress, and give feedback to each other.
-
-                <br><br>
-
-                If either of these events sound fun, reach out through <a href="#apply">the form at the bottom of the page</a>!
+                <p>
+                    <strong>Bi-weekly hang outs:</strong> soon we will start hosting bi-weekly hang outs, jams where you can enjoy your time with others —— talk, have food, play boardgames ——  but also do something on your own —— read, work on a craft, or finish a project —— just in the company of others! Everyone is welcome to join and participate in whatever is happening or bring their own activity.
+                </p>
+                <p>
+                    <strong>Independent research group:</strong> every Monday we hold an independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share our progress, and give feedback to each other.
+                </p>
+                <p>
+                    If either of these events sound fun, reach out through <a href="#apply">the form at the bottom of the page</a>!
+                </p>
             </div>
-
-            <br>
 
             <div class="table-section">
                 <h2><a href="university.html">Community University</a></h2>
-                <p></p>
-
-                We started a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here. <!--Come to learn from your peers, neighbors, and friends, meet others interested in the same things as you, and have fun!-->
-                <br><br>
-                Below are the classes of our inaugural Fall 2025 term:
-                <br><br>
+                <p>
+                    We started a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here.
+                </p>
+                <p>
+                    Below are the classes of our inaugural Fall 2025 term:
+                </p>
                 <div class="table-wrapper">
-                    <table id="table1">
+                    <table id="table1" class="table-index">
                         <thead>
                             <tr>
                                 <th data-column="0">Class (Click for More Info)</th>
@@ -286,16 +73,15 @@
                             </tr>
                         </thead>
                         <tbody id="universityTableBody">
-                            <!-- Data loaded here -->
+                            <!-- Data loaded dynamically -->
                         </tbody>
                     </table>
                 </div>
-                <br>
-                <b><span style="color:red;">Our Winter 2026 term will commence on January 19th. Class information and registation will be open very soon!</span></b> If you want to be in the loop, <a href="#apply">fill out our interest form</a>, <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com"> email Praxis San Diego</a> or email the class instructors (see individual class pages).<!--If you want to learn more and register, <a href="university.html" class="view-full">click here</a> to visit our community university page.-->
+                <p>
+                    <strong class="announcement">Our Winter 2026 term will commence on January 19th. Class information and registration will be open very soon!</strong> If you want to be in the loop, <a href="#apply">fill out our interest form</a>, <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com">email Praxis San Diego</a> or email the class instructors (see individual class pages).
+                </p>
             </div>
         </div>
-
-        <br>
 
         <div class="section form-section">
             <h2 id="apply">Get in touch</h2>
@@ -306,8 +92,11 @@
         </div>
     </div>
 
+    <script src="js/link-conversion.js"></script>
+    <script src="js/table-utils.js"></script>
+    <script src="js/background-animation-smallworld.js"></script>
     <script>
-        // Table initialization and data loading
+        // Table initialization and data loading for index page
         async function loadTableData() {
             try {
                 // Load university data
@@ -316,251 +105,33 @@
 
                 // Populate university table
                 const universityBody = document.getElementById('universityTableBody');
-                universityData.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td><a href="${item.link}">${item.name}</a></td>
-                        <td>${item.start}</td>
-                        <td>${item.duration}</td>
-                        <td><a href="${item.link}">Learn more</a></td>
-                    `;
-                    /* Previously
-                    row.innerHTML = `
-                        <td><a href="${item.link}">${item.name}</a></td>
-                        <td>${item.start}</td>
-                        <td>${item.duration}</td>
-                        <td><a href="../university.html#apply">Apply here</a></td>
-                    `;
-                    */
-                    universityBody.appendChild(row);
-                });
-
-                /*
-                // Load project directory data
-                const projectResponse = await fetch('data/project-directory.json');
-                const projectData = await projectResponse.json();
-
-
-                // Populate project table with first 5 items
-                const projectBody = document.getElementById('projectTableBody');
-                projectData.slice(0, 5).forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td><a href="${item.link}">${item.name}</a></td>
-                        <td>${item.lead}</td>
-                        <td>${item.started}</td>
-                        <td>${item.status}</td>
-                    `;
-                    projectBody.appendChild(row);
-                });
-                */
+                if (universityBody) {
+                    universityData.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><a href="${item.link}">${item.name}</a></td>
+                            <td>${item.start}</td>
+                            <td>${item.duration}</td>
+                            <td><a href="${item.link}">Learn more</a></td>
+                        `;
+                        universityBody.appendChild(row);
+                    });
+                }
 
                 // Initialize table functionality after data is loaded
                 initTable('table1');
-                //initTable('table2', 'search2');
 
             } catch (error) {
                 console.error('Error loading data:', error);
-                // Fallback content if data files are not available
-                document.getElementById('universityTableBody').innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
-            }
-        }
-
-        // Table sorting and searching functionality
-        function initTable(tableId) {
-            const table = document.getElementById(tableId);
-            //const searchInput = document.getElementById(searchId);
-            const tbody = table.querySelector('tbody');
-            const headers = table.querySelectorAll('th');
-
-            /*
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                const rows = Array.from(tbody.querySelectorAll('tr'));
-                rows.forEach(row => {
-                    const text = row.textContent.toLowerCase();
-                    row.style.display = text.includes(searchTerm) ? '' : 'none';
-                });
-            });
-            */
-
-            // Sorting functionality
-            headers.forEach(header => {
-                header.addEventListener('click', function() {
-                    const column = parseInt(this.dataset.column);
-                    const isAsc = this.classList.contains('sort-asc');
-                    const rows = Array.from(tbody.querySelectorAll('tr'));
-
-                    // Remove sort classes from all headers
-                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
-
-                    // Add appropriate class to clicked header
-                    this.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
-
-                    // Sort rows
-                    const sortedRows = rows.sort((a, b) => {
-                        const aText = a.cells[column].textContent.trim();
-                        const bText = b.cells[column].textContent.trim();
-
-                        // Check if values are dates
-                        const aDate = Date.parse(aText);
-                        const bDate = Date.parse(bText);
-
-                        if (!isNaN(aDate) && !isNaN(bDate)) {
-                            return isAsc ? bDate - aDate : aDate - bDate;
-                        }
-
-                        // Regular string comparison
-                        if (isAsc) {
-                            return bText.localeCompare(aText);
-                        } else {
-                            return aText.localeCompare(bText);
-                        }
-                    });
-
-                    // Re-append sorted rows
-                    sortedRows.forEach(row => tbody.appendChild(row));
-                });
-            });
-        }
-
-        class TriangularMeshBackground {
-            constructor() {
-                this.canvas = document.getElementById('backgroundCanvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.nodes = [];
-                this.time = 0;
-                this.contentWidth = 900; // Max width of content
-                this.contentPadding = 50; // Extra padding around content
-                this.isAnimating = true;
-
-                this.init();
-                this.animate();
-
-                // Handle resize
-                window.addEventListener('resize', () => this.init());
-
-                // Handle animation toggle
-                const toggleBtn = document.getElementById('animationToggle');
-                toggleBtn.addEventListener('click', () => {
-                    this.isAnimating = !this.isAnimating;
-                    toggleBtn.textContent = this.isAnimating ? '⏻︎' : '⏻︎';
-                    toggleBtn.classList.toggle('paused', !this.isAnimating);
-                });
-            }
-
-            init() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-
-                // Clear existing nodes
-                this.nodes = [];
-
-                // Calculate content area to avoid
-                const contentLeft = (this.canvas.width - this.contentWidth) / 2 - this.contentPadding;
-                const contentRight = (this.canvas.width + this.contentWidth) / 2 + this.contentPadding;
-
-                // Create irregular triangular grid with more randomness
-                const baseSpacing = 60; // Base distance between nodes
-                const rows = Math.ceil(this.canvas.height / (baseSpacing * 0.866)) + 2;
-                const cols = Math.ceil(this.canvas.width / baseSpacing) + 2;
-
-                for (let row = -1; row < rows; row++) {
-                    for (let col = -1; col < cols; col++) {
-                        // Add significant randomness to positions
-                        const randomOffsetX = (Math.random() - 0.5) * baseSpacing * 0.6;
-                        const randomOffsetY = (Math.random() - 0.5) * baseSpacing * 0.6;
-
-                        const x = col * baseSpacing + (row % 2) * (baseSpacing / 2) + randomOffsetX;
-                        const y = row * baseSpacing * 0.866 + randomOffsetY;
-
-                        // Only add nodes that are outside the content area
-                        if (x < contentLeft || x > contentRight) {
-                            this.nodes.push({
-                                x: x,
-                                y: y,
-                                baseX: x,
-                                baseY: y,
-                                offsetX: Math.random() * 15 - 7.5,
-                                offsetY: Math.random() * 15 - 7.5,
-                                phase: Math.random() * Math.PI * 2,
-                                amplitude: 8 + Math.random() * 12, // Increased amplitude for more noticeable sway
-                                speed: 0.8 + Math.random() * 0.4 // Variable speed for each node
-                            });
-                        }
-                    }
+                const universityBody = document.getElementById('universityTableBody');
+                if (universityBody) {
+                    universityBody.innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
                 }
-
-                // Store content boundaries for connection drawing
-                this.contentLeft = contentLeft;
-                this.contentRight = contentRight;
-                this.spacing = baseSpacing;
-            }
-
-            drawConnections() {
-                this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)'; // Black edges
-                this.ctx.lineWidth = 1;
-
-                // Draw connections between nearby nodes
-                for (let i = 0; i < this.nodes.length; i++) {
-                    const node1 = this.nodes[i];
-
-                    for (let j = i + 1; j < this.nodes.length; j++) {
-                        const node2 = this.nodes[j];
-                        const dist = Math.sqrt(
-                            Math.pow(node2.x - node1.x, 2) +
-                            Math.pow(node2.y - node1.y, 2)
-                        );
-
-                        // Connect nodes that are close (using current positions for more organic look)
-                        if (dist < this.spacing * 1.5) {
-                            this.ctx.beginPath();
-                            this.ctx.moveTo(node1.x, node1.y);
-                            this.ctx.lineTo(node2.x, node2.y);
-                            this.ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            animate() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-                // Update node positions only if animating
-                if (this.isAnimating) {
-                    this.time += 0.015; // Slightly faster for more noticeable movement
-                }
-
-                this.nodes.forEach(node => {
-                    if (this.isAnimating) {
-                        node.x = node.baseX + node.offsetX +
-                               Math.sin(this.time * node.speed + node.phase) * node.amplitude;
-                        node.y = node.baseY + node.offsetY +
-                               Math.cos(this.time * node.speed * 0.7 + node.phase) * node.amplitude * 0.7;
-                    }
-                });
-
-                // Draw connections first
-                this.drawConnections();
-
-                // Draw nodes in black
-                this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // Black nodes
-                this.nodes.forEach(node => {
-                    this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2); // Slightly larger nodes
-                    this.ctx.fill();
-                });
-
-                requestAnimationFrame(() => this.animate());
             }
         }
 
         // Load data when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTableData();
-            new TriangularMeshBackground();
-        });
+        document.addEventListener('DOMContentLoaded', loadTableData);
     </script>
 </body>
 </html>

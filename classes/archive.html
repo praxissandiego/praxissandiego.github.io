@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Archive - Praxis Community University</title>
+    <meta name="description" content="Archive of past classes offered at Praxis Community University.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praxissandiego.com/classes/archive.html">
+    <meta property="og:title" content="Class Archive - Praxis Community University">
+    <meta property="og:description" content="Archive of past classes offered at Praxis Community University.">
+    <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Class Archive - Praxis Community University">
+    <meta name="twitter:description" content="Archive of past classes offered at Praxis Community University.">
+    <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <button id="animationToggle" aria-label="Toggle background animation">⏻︎</button>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Class Archive</h1>
+                <a href="../university.html" class="back-link">← to Community University</a>
+            </div>
+        </header>
+
+        <div class="description">
+            <p>
+                Browse all past classes offered at Praxis Community University. Classes are organized by term and can be searched and sorted using the controls below.
+            </p>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by title, instructor, or keyword...">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="archiveTable" class="table-4col">
+                <thead>
+                    <tr>
+                        <th data-column="0">Class & Description<br>(Click for Info)</th>
+                        <th data-column="1">Instructor(s)</th>
+                        <th data-column="2">Days, Times, and Dates</th>
+                        <th data-column="3">Term</th>
+                    </tr>
+                </thead>
+                <tbody id="archiveTableBody">
+                    <!-- Data loaded dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="stats">
+            <span id="visibleCount">0</span> of <span id="totalCount">0</span> classes shown
+        </div>
+    </div>
+
+    <script src="../js/table-utils.js"></script>
+    <script src="../js/background-animation-smallworld.js"></script>
+    <script>
+        // Configuration: List all terms to load
+        // Add new terms here as they are created
+        const TERMS = [
+            {
+                name: 'Fall 2025',
+                path: '/data/terms/fall2025.json',
+                linkPrefix: '/classes/fall2025/'
+            }
+            // Add future terms like:
+            // { name: 'Winter 2026', path: '/data/terms/winter2026.json', linkPrefix: '/classes/winter2026/' }
+        ];
+
+        // Load all terms and populate the archive
+        async function loadArchive() {
+            try {
+                allData = await loadAllTerms(TERMS);
+                filteredData = [...allData];
+
+                // Update total count
+                const totalCount = document.getElementById('totalCount');
+                if (totalCount) {
+                    totalCount.textContent = allData.length;
+                }
+
+                // Populate table with term column
+                populateArchiveTable(allData);
+
+                // Initialize controls
+                initializeControls();
+
+            } catch (error) {
+                console.error('Error loading archive:', error);
+                const tbody = document.getElementById('archiveTableBody');
+                if (tbody) {
+                    tbody.innerHTML = '<tr><td colspan="4">Unable to load archive data. Please try again later.</td></tr>';
+                }
+            }
+        }
+
+        // Override filterTable for archive-specific behavior
+        function filterTable() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+
+            filteredData = allData.filter(item => {
+                const matchesSearch =
+                    item.name.toLowerCase().includes(searchTerm) ||
+                    item.description.toLowerCase().includes(searchTerm) ||
+                    item.instructor.toLowerCase().includes(searchTerm) ||
+                    item.when.toLowerCase().includes(searchTerm) ||
+                    item.term.toLowerCase().includes(searchTerm);
+
+                return matchesSearch;
+            });
+
+            populateArchiveTable(filteredData);
+        }
+
+        // Load archive when page loads
+        document.addEventListener('DOMContentLoaded', loadArchive);
+    </script>
+</body>
+</html>
