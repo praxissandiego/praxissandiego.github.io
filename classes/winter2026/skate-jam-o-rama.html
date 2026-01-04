@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorrie & Lizzy's Skate Jam-o-Rama - Praxis Community University, Winter 2026</title>
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praxissandiego.com/classes/winter2026/skate-jam-o-rama.html">
+    <meta property="og:title" content="Dorrie & Lizzy's Skate Jam-o-Rama - Praxis Community University">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dorrie & Lizzy's Skate Jam-o-Rama - Praxis Community University">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/main.css">
+    <style>
+        h1 {
+          background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-stroke: 1px black;
+        }
+    </style>
+</head>
+<body class="class-page">
+    <canvas id="backgroundCanvas"></canvas>
+    <button id="animationToggle" aria-label="Toggle background animation">⏻︎</button>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1 id="className">Dorrie & Lizzy's Skate Jam-o-Rama</h1>
+                </div>
+            </div>
+            <a href="../../university.html" class="back-link" id="backLink">← to Winter 2026 Classes</a>
+        </header>
+
+        <div class="class-info-box">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Schedule:</span>
+                    <span class="info-value" id="when">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Location:</span>
+                    <span class="info-value" id="where">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Apply:</span>
+                    <span class="info-value">
+                        <a href="#apply" class="signup-link">Click here</a>
+                    </span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Questions?</span>
+                    <span class="info-value"><div class="email">Please email
+                    <a id="link-conversion" rel="nofollow, noindex" href="t:::o-pr-a-xi-:s:san-dieg:o_gma-il::/com">
+                    praxi<span>s<span>s</span>an</span>diego@<span>g</span>mail.com</a>
+                    and include [Skate Jam-o-Rama] in the subject line.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-content">
+            <h2>Course Description</h2>
+            <p>
+              Do you have a pair of roller skates collecting dust somewhere in your apartment/house/garage/storage unit? If so, then this jam is for YOU! Dorrie & Lizzy will be hosting a roller skate jam in North Park and all levels are welcome (yes, that includes beginners)! On Saturday mornings beginning January 24th, we will meet up to play music, skate together, and swap tips n tricks.
+            </p>
+
+            <p>
+              Important note: this is NOT a skate class. Think of this as a safe space to dust off your skates, hang out with others, and learn by doing - we will not be providing a curriculum nor guided instruction and <b><u>all participants are responsible for their own safety and wellbeing</b></u>. There WILL be plenty of advice going around if you are looking for it (including for beginners).
+            </p>
+
+            <p>
+              Protective gear - helmets, knee pads, wrist guards - is <b><i><u>strongly encouraged</u>!</i></b> Again, you are responsible for your own safety.
+            </p>
+
+            <h2>Your Hosts</h2>
+            <p>
+              Dorrie & Lizzy: We're two gals in North Park who love to roller skate and wish we were doing it more often! We are intermediate skaters and anyone joining will be learning with us!
+            </p>
+        </div>
+
+        <div class="application-section" id="apply">
+            <h2>Apply</h2>
+            <p>Want to join? Fill out the application form below!</p>
+
+            <div class="form-embed" id="formContainer">
+                <iframe
+                    src="https://tally.so/embed/44BWAb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    width="100%"
+                    height="600"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    title="Application Form">
+                </iframe>
+                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/link-conversion.js"></script>
+    <script src="../../js/class-page.js"></script>
+    <script src="../../js/background-animation-smallworld.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAndPopulateClassPage(
+                "Dorrie & Lizzy's Skate Jam-o-Rama",
+                "Winter 2026",
+                "/data/terms/winter2026.json"
+            );
+            initFormHandler();
+        });
+    </script>
+</body>
+</html>
