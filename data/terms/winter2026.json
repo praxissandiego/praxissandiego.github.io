@@ -84,14 +84,26 @@
     "link": "classes/winter2026/harm-reduction-is-survival.html"
   },
   {
+    "name": "A Primer On Non-Violent Communication",
+    "id": "a-primer-on-nva",
+    "description": "This one-off class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.",
+    "instructor": "Alex T",
+    "when": "Friday Feb 20 6-7:30pm,<br>1 meeting",
+    "start": "Fri, Feb 27",
+    "duration": "1 meeting",
+    "whenSort1": "8",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/winter2026/a-primer-on-nva.html"
+  },
+  {
     "name": "Us Against When",
     "id": "us-against-when",
     "description": "In this workshop, we will develop a futures toolkit to overcome intractable conflicts in the city of San Diego and create new pathways for community engagement toward a brighter future.<br><br><b><u>Application deadline: Feb 20</u></b>",
     "instructor": "Keil Eggers",
     "when": "3 meetings:<br> Friday Feb 27 6-7pm,<br>Sunday Mar 1 11am-3pm,<br>Sunday Mar 8 11am-3pm",
-    "start": "Fri 27",
+    "start": "Fri, Feb 27",
     "duration": "3 meetings",
-    "whenSort1": "8",
+    "whenSort1": "9",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/winter2026/us-against-when.html"
   },
@@ -103,7 +115,7 @@
      "when": "Saturdays 10-11:30am,<br>Jan 24-Mar 21,<br>8 meetings<br>(no class Feb 21)",
      "start": "Sat, Jan 24",
      "duration": "8 meetings",
-     "whenSort1": "9",
+     "whenSort1": "10",
      "where": "North Park,<br>Address provided to enrollees.",
      "link": "classes/winter2026/skate-jam-o-rama.html"
    },
@@ -115,9 +127,21 @@
      "when": "Saturdays Jan 31-Feb 14, Mar 7, Mar 14,<br>10am-12pm<br>+optional 12-1pm QnA,<br>5 meetings",
      "start": "Sat, Jan 31",
      "duration": "5 meetings",
-     "whenSort1": "10",
+     "whenSort1": "11",
      "where": "Different locations outside, see <a href='classes/winter2026/plants-and-ecology-in-san-diego.html'>class page</a>.",
      "link": "classes/winter2026/plants-and-ecology-in-san-diego.html"
+   },
+   {
+     "name": "Architecture & Urbanism in San Diego: A Walking Tour",
+     "id": "architecture-urbanism",
+     "description": "Four walking tours through which we will explore topics in urban design, city planning, and how they relate to the development of San Diego.<br><br><u>Note: you can sign up for each walking tour independently of the others!</u>",
+     "instructor": "Dorrie B & Megan W",
+     "when": "4 independent walking tours on Saturdays<br>Jan 31, 3-5pm: Bankers Hill/Balboa Park,<br>Feb 14, 3-5pm: Barrio Logan,<br>Feb 28, 2-5pm: Valleys, Rivers, & Trolleys,<br>Mar 14, time TBA: Tactical Urbanism!",
+     "start": "Sat, Jan 31",
+     "duration": "",
+     "whenSort1": "13",
+     "where": "Different location each week, see <a href='architecture-urbanism.html'>class page</a> for more details.",
+     "link": "classes/winter2026/architecture-urbanism.html"
    },
    {
      "name": "Essay Club!",
@@ -127,7 +151,7 @@
      "when": "Sundays Feb 1, Feb 15, Mar 1, Mar 15,<br>12-1pm,<br>4 meetings",
      "start": "Sun, Feb 1",
      "duration": "4 meetings",
-     "whenSort1": "13",
+     "whenSort1": "14",
      "where": "North Park,<br>Address provided to enrollees.",
      "link": "classes/winter2026/essay-club.html"
    }
