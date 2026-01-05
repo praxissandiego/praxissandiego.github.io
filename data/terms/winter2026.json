@@ -12,6 +12,18 @@
     "link": "classes/winter2026/where-do-we-begin.html"
   },
   {
+    "name": "Poetry Is Boring: Musings Your English Teacher Missed",
+    "id": "poetry-is-boring",
+    "description": "Poetry is an art form many consider boring, unapproachable, intimidating or downright confusing. In this class, we’ll be discussing why poetry feels so inaccessible, what types of poetry one might <i>actually</i> enjoy, and breaking down the barrier between classical writing and contemporary works.",
+    "instructor": "Ashley McGinty",
+    "when": "Tuesdays 6-7:30pm,<br>Jan 20-Feb 24,<br>5 meetings<br>(no class Feb 17)",
+    "start": "Tue, Jan 20",
+    "duration": "5 meetings",
+    "whenSort1": "2",
+    "where": "San Diego Made Factory, 2031 Commercial St",
+    "link": "classes/winter2026/poetry-is-boring.html"
+  },
+  {
     "name": "How To Feel Better",
     "id": "how-to-feel-better",
     "description": "In this class we will experientially explore the vast space of modern techniques and ancient practices for increasing well-being, while maintaining critical thinking.<br><br><b><u>Application deadline: Jan 29</u></b>",
@@ -19,7 +31,7 @@
     "when": "Tuesdays 6:30-7:45pm,<br>Feb 3-Mar 10,<br>5 meetings<br>(no class Feb 17)",
     "start": "Tue, Feb 3",
     "duration": "5 meetings",
-    "whenSort1": "2",
+    "whenSort1": "3",
     "where": "Serra Mesa,<br>Address provided to enrollees.",
     "link": "http://krusz.net/feel-better.html"
   },
@@ -31,7 +43,7 @@
     "when": "Wednesdays 7-9pm,<br>Jan 21-Mar 4,<br>6 meetings<br>(no class Feb 18)",
     "start": "Wed, Jan 21",
     "duration": "6 meetings",
-    "whenSort1": "3",
+    "whenSort1": "4",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/winter2026/this-is-for-everybody.html"
   },
@@ -43,7 +55,7 @@
     "when": "Thursdays 6:30-8pm,<br>Jan 22-Mar 5,<br>6 meetings<br>(no class Feb 19)",
     "start": "Jan 22",
     "duration": "6 meetings",
-    "whenSort1": "4",
+    "whenSort1": "5",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/winter2026/public-power-102.html"
   },
@@ -55,7 +67,7 @@
     "when": "Thursdays 7-8:30pm,<br>Jan 22-Mar 19,<br>8 meetings<br>(no class Feb 19)",
     "start": "Thu, Jan 22",
     "duration": "8 meetings",
-    "whenSort1": "5",
+    "whenSort1": "6",
     "where": "Deixis Gallery,<br>2173 Logan Ave",
     "link": "classes/winter2026/erudite-writing-workshop.html"
   },
@@ -67,7 +79,7 @@
     "when": "Thursdays 6-7:30pm,<br>Feb 5 & Feb 12,<br>2 meetings",
     "start": "Feb 5",
     "duration": "2 meetings",
-    "whenSort1": "6",
+    "whenSort1": "7",
     "where": "Hey! Books,<br>921 E St",
     "link": "classes/winter2026/harm-reduction-is-survival.html"
   },
@@ -79,7 +91,7 @@
      "when": "Saturdays 10-11:30am,<br>Jan 24-Mar 21,<br>8 meetings<br>(no class Feb 21)",
      "start": "Sat, Jan 24",
      "duration": "8 meetings",
-     "whenSort1": "7",
+     "whenSort1": "8",
      "where": "North Park,<br>Address provided to enrollees.",
      "link": "classes/winter2026/skate-jam-o-rama.html"
    },
@@ -91,19 +103,19 @@
      "when": "Saturdays Jan 31-Feb 14, Mar 7, Mar 14,<br>10am-12pm<br>+optional 12-1pm QnA,<br>5 meetings",
      "start": "Sat, Jan 31",
      "duration": "5 meetings",
-     "whenSort1": "8",
+     "whenSort1": "9",
      "where": "Different locations outside, see <a href='classes/winter2026/plants-and-ecology-in-san-diego.html'>class page</a>.",
      "link": "classes/winter2026/plants-and-ecology-in-san-diego.html"
    },
    {
      "name": "Essay Club!",
      "id": "essay-club",
-     "description": "This class is an essay club, specifically an essay-reading club. Think of it as a normal reading club... but with essays. This is for you if you want a little more lively discussion in your life. I'm teaching this class because I want that, and I want to widen my perspectives on life!",
+     "description": "This class is an essay club, specifically an essay-reading club. Think of it as a normal reading club... but with essays. This is for you if you want a little more lively discussion in your life. I'm teaching this class because I want that, and I want to widen my perspectives on life!<br><br><b><u>Application deadline: Jan 25</u></b>",
      "instructor": "Cornel Amler",
      "when": "Sundays Feb 1, Feb 15, Mar 1, Mar 15,<br>12-1pm,<br>4 meetings",
      "start": "Sun, Feb 1",
      "duration": "4 meetings",
-     "whenSort1": "11",
+     "whenSort1": "12",
      "where": "North Park,<br>Address provided to enrollees.",
      "link": "classes/winter2026/essay-club.html"
    }
