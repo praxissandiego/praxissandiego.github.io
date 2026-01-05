@@ -60,9 +60,21 @@
     "link": "classes/winter2026/erudite-writing-workshop.html"
   },
   {
+    "name": "Harm Reduction Is Survival",
+    "id": "harm-reduction-is-survival",
+    "description": "This class is a radical & practical introduction to harm reduction as a life-saving response to the drug war, criminalization, and abandonment of people who use drugs. Students will learn how different drugs affect the body, how to respond to overdoses, and how harm reduction principles challenge abstinence-only, carceral, and moralized approaches to drug use.<br><br><b><u>Application deadline: Feb 1</u></b>",
+    "instructor": "Cherish B",
+    "when": "Thursdays 6-7:30pm,<br>Feb 5 & Feb 12,<br>2 meetings",
+    "start": "Feb 5",
+    "duration": "2 meetings",
+    "whenSort1": "6",
+    "where": "Hey! Books,<br>921 E St",
+    "link": "classes/winter2026/harm-reduction-is-survival.html"
+  },
+  {
      "name": "Dorrie & Lizzy's Skate Jam-o-Rama",
      "id": "skate-jam-o-rama",
-     "description": "Dust off your roller skates and come out to <b>JAM!</b> Note: this is a meet-up, NOT a class.",
+     "description": "Dust off your roller skates and come out to <b>JAM!</b> Note: this is a meet-up, NOT an instructor-led class.",
      "instructor": "Dorrie B and Lizzy M",
      "when": "Saturdays 10-11:30am,<br>Jan 24-Mar 21,<br>8 meetings<br>(no class Feb 21)",
      "start": "Sat, Jan 24",
