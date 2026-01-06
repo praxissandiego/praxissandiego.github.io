@@ -8,6 +8,9 @@
 // Store data globally for filtering/sorting operations
 let allData = [];
 let filteredData = [];
+let isArchivePage = false; // Flag to determine which populate function to use
+let defaultSortField = null; // Field to sort by when no column is selected
+let defaultSortAscending = true; // Default sort direction
 
 /**
  * Initialize a sortable table
@@ -107,9 +110,31 @@ function initializeControls() {
 
             // Sort data
             if (this.sortState === 'none') {
-                // Return to original order
+                // Return to original/default order
                 filteredData = [...allData];
-                filterTable(); // Re-apply any active filters
+                // Apply any search filters first
+                const searchInput = document.getElementById('searchInput');
+                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                if (searchTerm) {
+                    filteredData = filteredData.filter(item => {
+                        return item.name.toLowerCase().includes(searchTerm) ||
+                            item.description.toLowerCase().includes(searchTerm) ||
+                            item.instructor.toLowerCase().includes(searchTerm) ||
+                            item.when.toLowerCase().includes(searchTerm) ||
+                            (item.where && item.where.toLowerCase().includes(searchTerm)) ||
+                            (item.term && item.term.toLowerCase().includes(searchTerm));
+                    });
+                }
+                // Apply default sort if specified
+                if (defaultSortField) {
+                    applyDefaultSort();
+                }
+                // Re-populate the table
+                if (isArchivePage) {
+                    populateArchiveTable(filteredData);
+                } else {
+                    populateTable(filteredData);
+                }
             } else {
                 sortData(column, this.sortState === 'asc');
             }
@@ -136,7 +161,43 @@ function filterTable() {
         return matchesSearch;
     });
 
-    populateTable(filteredData);
+    // Apply default sort if specified and no column is actively sorted
+    if (defaultSortField) {
+        const headers = document.querySelectorAll('th');
+        const anyColumnSorted = Array.from(headers).some(h => h.sortState && h.sortState !== 'none');
+        if (!anyColumnSorted) {
+            applyDefaultSort();
+        }
+    }
+
+    // Use the appropriate populate function
+    if (isArchivePage) {
+        populateArchiveTable(filteredData);
+    } else {
+        populateTable(filteredData);
+    }
+}
+
+/**
+ * Apply default sort to filteredData
+ */
+function applyDefaultSort() {
+    if (!defaultSortField) return;
+    
+    filteredData.sort((a, b) => {
+        let aVal = a[defaultSortField] || '';
+        let bVal = b[defaultSortField] || '';
+
+        // Convert to lowercase for string comparison
+        if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+        if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+        if (defaultSortAscending) {
+            return aVal > bVal ? 1 : -1;
+        } else {
+            return aVal < bVal ? 1 : -1;
+        }
+    });
 }
 
 /**
@@ -145,8 +206,10 @@ function filterTable() {
  * @param {boolean} ascending - Sort direction
  */
 function sortData(column, ascending) {
-    const fields = ['name', 'instructor', 'whenSort1', 'where'];
-    const displayFields = ['name', 'instructor', 'when', 'where'];
+    // Use 'term' for column 3 on archive page, 'where' otherwise
+    const col3Field = isArchivePage ? 'term' : 'where';
+    const fields = ['name', 'instructor', 'whenSort1', col3Field];
+    const displayFields = ['name', 'instructor', 'when', col3Field];
 
     let field = fields[column];
     let displayField = displayFields[column];
@@ -167,7 +230,12 @@ function sortData(column, ascending) {
         }
     });
 
-    populateTable(filteredData);
+    // Use the appropriate populate function
+    if (isArchivePage) {
+        populateArchiveTable(filteredData);
+    } else {
+        populateTable(filteredData);
+    }
 }
 
 /**
@@ -277,7 +345,8 @@ async function loadAllTerms(terms) {
             data.forEach(classItem => {
                 classItem.term = term.name;
                 // Adjust link path for archive context if needed
-                if (term.linkPrefix) {
+                // Don't modify absolute URLs (external links)
+                if (term.linkPrefix && !classItem.link.startsWith('http://') && !classItem.link.startsWith('https://')) {
                     classItem.link = term.linkPrefix + classItem.link;
                 }
             });

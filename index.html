@@ -30,7 +30,7 @@
         <div class="section description">
             <h2>What Is This All About?</h2>
             <p>
-                It's hard to live a good life without a broad and supportive community. It's also hard to do it without a tight-knit circle of those who we want to share our life with both in adventures and in mundanities.
+                It's hard to live a good life without a broad and supportive community. It's also hard to do it without a tight-knit circle of those who you want to share your life with, both in adventures and in mundanities.
             </p>
             <p>
                 We are, in short, a small, but growing group of friends living in San Diego who are working on (re)building the practices that help us to do that. Inspired by <a href="https://fractalnyc.com/">Fractal NYC</a> and <a href="https://fractalnyc.com/#:~:text=Alumni%20of%20Our%20Neighborhood%20Accelerator">other civicas around the world</a>, we are building our own intentional community here, one step at a time. Below you can find some details of what we've been up to.
@@ -44,7 +44,7 @@
             <div class="table-section">
                 <h2>Events</h2>
                 <p>
-                    <strong>Bi-weekly hang outs:</strong> soon we will start hosting bi-weekly hang outs, jams where you can enjoy your time with others —— talk, have food, play boardgames ——  but also do something on your own —— read, work on a craft, or finish a project —— just in the company of others! Everyone is welcome to join and participate in whatever is happening or bring their own activity.
+                    <strong>Monthly hang outs:</strong> soon we will start hosting monthly hang outs, jams where you can enjoy your time with others —— talk, have food, play boardgames ——  but also do something on your own —— read, work on a craft, or finish a project —— just in the company of others! Everyone is welcome to join and participate in whatever is happening or bring their own activity.
                 </p>
                 <p>
                     <strong>Independent research group:</strong> every Monday we hold an independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share our progress, and give feedback to each other.
@@ -60,7 +60,7 @@
                     We started a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here.
                 </p>
                 <p>
-                    Below are the classes of our inaugural Fall 2025 term:
+                    Below are the classes of our second term starting in January 19th 2026:
                 </p>
                 <div class="table-wrapper">
                     <table id="table1" class="table-index">
@@ -77,8 +77,9 @@
                         </tbody>
                     </table>
                 </div>
+                <br>
                 <p>
-                    <strong class="announcement">Our Winter 2026 term will commence on January 19th. Class information and registration will be open very soon!</strong> If you want to be in the loop, <a href="#apply">fill out our interest form</a>, <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com">email Praxis San Diego</a> or email the class instructors (see individual class pages).
+                    <b><u>The registration for most classes is open until January 18 or until they get filled, but some classes have later deadlines.</u></b> If you want to learn more and register, <a href="university.html" class="view-full">click here</a> to visit our community university page!
                 </p>
             </div>
         </div>
@@ -95,31 +96,49 @@
     <script src="js/link-conversion.js"></script>
     <script src="js/table-utils.js"></script>
     <script src="js/background-animation-smallworld.js"></script>
+    <script src="js/menu.js"></script>
     <script>
         // Table initialization and data loading for index page
+        let originalTableData = []; // Store original order for reset
+
         async function loadTableData() {
             try {
                 // Load university data
-                const universityResponse = await fetch('data/classes-current.json');
+                const CURRENT_TERM = 'winter2026';
+                const universityResponse = await fetch(`data/terms/${CURRENT_TERM}.json`);
                 const universityData = await universityResponse.json();
+
+                // Sort by Start Date by default (parse dates for proper ordering)
+                universityData.sort((a, b) => {
+                    const dateA = new Date(a.start);
+                    const dateB = new Date(b.start);
+                    return dateA - dateB;
+                });
+
+                // Store original sorted order for reset
+                originalTableData = [...universityData];
 
                 // Populate university table
                 const universityBody = document.getElementById('universityTableBody');
                 if (universityBody) {
                     universityData.forEach(item => {
                         const row = document.createElement('tr');
+                        // Handle external links properly
+                        const href = item.link.startsWith('http://') || item.link.startsWith('https://')
+                            ? item.link
+                            : item.link;
                         row.innerHTML = `
-                            <td><a href="${item.link}">${item.name}</a></td>
+                            <td><a href="${href}">${item.name}</a></td>
                             <td>${item.start}</td>
                             <td>${item.duration}</td>
-                            <td><a href="${item.link}">Learn more</a></td>
+                            <td><a href="${href}">Learn more</a></td>
                         `;
                         universityBody.appendChild(row);
                     });
                 }
 
-                // Initialize table functionality after data is loaded
-                initTable('table1');
+                // Initialize table functionality with three-click reset
+                initTableWithReset('table1', originalTableData);
 
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -128,6 +147,101 @@
                     universityBody.innerHTML = '<tr><td colspan="4">Unable to load data. Please check data files.</td></tr>';
                 }
             }
+        }
+
+        // Enhanced initTable with three-click reset to default (Start Date) order
+        function initTableWithReset(tableId, originalData) {
+            const table = document.getElementById(tableId);
+            if (!table) {
+                console.warn(`Table with ID "${tableId}" not found`);
+                return;
+            }
+
+            const tbody = table.querySelector('tbody');
+            const headers = table.querySelectorAll('th');
+
+            // Initialize sort state for each header
+            headers.forEach(header => {
+                header.sortState = 'none';
+            });
+
+            // Note: Start Date is the default sort order, but we don't show the indicator
+            // The data is already sorted by Start Date from the load function
+
+            // Sorting functionality with three-click reset
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const column = parseInt(this.dataset.column);
+
+                    // Cycle through states: none -> asc -> desc -> none
+                    if (this.sortState === 'none' || this.sortState === undefined) {
+                        this.sortState = 'asc';
+                    } else if (this.sortState === 'asc') {
+                        this.sortState = 'desc';
+                    } else {
+                        this.sortState = 'none';
+                    }
+
+                    // Remove sort classes from all headers and reset their states
+                    headers.forEach(h => {
+                        h.classList.remove('sort-asc', 'sort-desc');
+                        if (h !== this) h.sortState = 'none';
+                    });
+
+                    // Apply appropriate class
+                    if (this.sortState === 'asc') {
+                        this.classList.add('sort-asc');
+                    } else if (this.sortState === 'desc') {
+                        this.classList.add('sort-desc');
+                    }
+
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    if (this.sortState === 'none') {
+                        // Reset to default order (sorted by Start Date, no indicator)
+                        tbody.innerHTML = '';
+                        originalData.forEach(item => {
+                            const row = document.createElement('tr');
+                            const href = item.link.startsWith('http://') || item.link.startsWith('https://')
+                                ? item.link
+                                : item.link;
+                            row.innerHTML = `
+                                <td><a href="${href}">${item.name}</a></td>
+                                <td>${item.start}</td>
+                                <td>${item.duration}</td>
+                                <td><a href="${href}">Learn more</a></td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                        // Don't mark any column as sorted - this is the "default" state
+                    } else {
+                        // Sort rows
+                        const isAsc = this.sortState === 'asc';
+                        const sortedRows = rows.sort((a, b) => {
+                            const aText = a.cells[column].textContent.trim();
+                            const bText = b.cells[column].textContent.trim();
+
+                            // Check if values are dates
+                            const aDate = Date.parse(aText);
+                            const bDate = Date.parse(bText);
+
+                            if (!isNaN(aDate) && !isNaN(bDate)) {
+                                return isAsc ? aDate - bDate : bDate - aDate;
+                            }
+
+                            // Regular string comparison
+                            if (isAsc) {
+                                return aText.localeCompare(bText);
+                            } else {
+                                return bText.localeCompare(aText);
+                            }
+                        });
+
+                        // Re-append sorted rows
+                        sortedRows.forEach(row => tbody.appendChild(row));
+                    }
+                });
+            });
         }
 
         // Load data when page loads

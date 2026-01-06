@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Archive - Praxis Community University</title>
+    <title>Praxis CU Class Archive - Praxis Community University</title>
     <meta name="description" content="Archive of past classes offered at Praxis Community University.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://praxissandiego.com/classes/archive.html">
-    <meta property="og:title" content="Class Archive - Praxis Community University">
+    <meta property="og:title" content="Praxis CU Class Archive - Praxis Community University">
     <meta property="og:description" content="Archive of past classes offered at Praxis Community University.">
     <meta property="og:image" content="https://praxissandiego.com/images/preview.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Class Archive - Praxis Community University">
+    <meta name="twitter:title" content="Praxis CU Class Archive - Praxis Community University">
     <meta name="twitter:description" content="Archive of past classes offered at Praxis Community University.">
     <meta name="twitter:image" content="https://praxissandiego.com/images/preview.jpg">
     <link rel="icon" href="/favicon.ico">
@@ -25,14 +25,14 @@
     <div class="container">
         <header>
             <div class="header-content">
-                <h1>Class Archive</h1>
-                <a href="../university.html" class="back-link">← to Community University</a>
+                <h1>Praxis CU Class Archive</h1>
+                <a href="../university.html" class="back-link">← to Community University</a>
             </div>
         </header>
 
         <div class="description">
             <p>
-                Browse all past classes offered at Praxis Community University. Classes are organized by term and can be searched and sorted using the controls below.
+                Browse all past classes offered at Praxis Community University! Classes are organized by term and can be searched and sorted using the controls below.
             </p>
         </div>
 
@@ -65,6 +65,7 @@
 
     <script src="../js/table-utils.js"></script>
     <script src="../js/background-animation-smallworld.js"></script>
+    <script src="../js/menu.js"></script>
     <script>
         // Configuration: List all terms to load
         // Add new terms here as they are created
@@ -72,7 +73,7 @@
             {
                 name: 'Fall 2025',
                 path: '/data/terms/fall2025.json',
-                linkPrefix: '/classes/fall2025/'
+                linkPrefix: '/../'
             }
             // Add future terms like:
             // { name: 'Winter 2026', path: '/data/terms/winter2026.json', linkPrefix: '/classes/winter2026/' }
@@ -81,6 +82,9 @@
         // Load all terms and populate the archive
         async function loadArchive() {
             try {
+                // Set archive page flag for table-utils.js
+                isArchivePage = true;
+
                 allData = await loadAllTerms(TERMS);
                 filteredData = [...allData];
 
@@ -119,6 +123,31 @@
                     item.term.toLowerCase().includes(searchTerm);
 
                 return matchesSearch;
+            });
+
+            populateArchiveTable(filteredData);
+        }
+
+        // Override sortData for archive-specific behavior (use term instead of where)
+        function sortData(column, ascending) {
+            const fields = ['name', 'instructor', 'whenSort1', 'term'];
+
+            let field = fields[column];
+
+            filteredData.sort((a, b) => {
+                // Use whenSort1 for sorting column 2, otherwise use the field directly
+                let aVal = field === 'whenSort1' ? (a[field] || a.when) : a[field];
+                let bVal = field === 'whenSort1' ? (b[field] || b.when) : b[field];
+
+                // Convert to lowercase for string comparison
+                if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+                if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+                if (ascending) {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
             });
 
             populateArchiveTable(filteredData);

@@ -5,6 +5,10 @@
  * Handles loading class data and populating page elements
  */
 
+// Current term - classes from this term link to university.html
+// Archived terms link to archive.html
+const CURRENT_TERM = 'Winter 2026';
+
 /**
  * Load class data from JSON and populate page elements
  * @param {string} className - The name of the class to find
@@ -26,8 +30,14 @@ async function loadAndPopulateClassPage(className, term, jsonPath) {
             // Populate the page with data from JSON
             const backLink = document.getElementById('backLink');
             if (backLink) {
-                backLink.textContent = "← to " + term + " Classes";
-                backLink.href = "/university.html#" + classData.id;
+                // Archived terms link to archive, current term links to university
+                if (term === CURRENT_TERM) {
+                    backLink.textContent = "← to " + term + " Classes";
+                    backLink.href = "/university.html#" + classData.id;
+                } else {
+                    backLink.textContent = "← to Class Archive";
+                    backLink.href = "/classes/archive.html#" + classData.id;
+                }
             }
 
             const classNameElement = document.getElementById('className');
