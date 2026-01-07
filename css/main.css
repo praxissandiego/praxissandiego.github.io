@@ -757,6 +757,11 @@ body.menu-open .container {
 }
 
 @media (max-width: 768px) {
+    /* ----- make the menu less transparent on mobile ----- */
+    .menu-panel {
+        background-color: rgba(248, 250, 251, 0.9);
+    }
+
     /* ----- Issue 1: Hide animation toggle on mobile ----- */
     #animationToggle {
         display: none;
