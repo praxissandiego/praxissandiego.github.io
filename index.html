@@ -123,6 +123,8 @@
                 if (universityBody) {
                     universityData.forEach(item => {
                         const row = document.createElement('tr');
+                        // Add row ID for mobile navigation
+                        row.id = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                         // Handle external links properly
                         const href = item.link.startsWith('http://') || item.link.startsWith('https://')
                             ? item.link
@@ -135,6 +137,9 @@
                         `;
                         universityBody.appendChild(row);
                     });
+
+                    // Create mobile class navigation dropdown
+                    createMobileClassNav(universityData, 'table1');
                 }
 
                 // Initialize table functionality with three-click reset
@@ -202,6 +207,8 @@
                         tbody.innerHTML = '';
                         originalData.forEach(item => {
                             const row = document.createElement('tr');
+                            // Add row ID for mobile navigation
+                            row.id = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                             const href = item.link.startsWith('http://') || item.link.startsWith('https://')
                                 ? item.link
                                 : item.link;

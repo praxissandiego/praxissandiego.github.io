@@ -273,6 +273,9 @@ function populateTable(data) {
     if (visibleCount) {
         visibleCount.textContent = data.length;
     }
+    
+    // Create/update mobile class navigation
+    createMobileClassNav(data, 'archiveTable');
 }
 
 /**
@@ -310,6 +313,9 @@ function populateArchiveTable(data) {
     if (visibleCount) {
         visibleCount.textContent = data.length;
     }
+    
+    // Create/update mobile class navigation
+    createMobileClassNav(data, 'archiveTable');
 }
 
 /**
@@ -357,4 +363,189 @@ async function loadAllTerms(terms) {
     }
     
     return allClasses;
+}
+
+/**
+ * Create or update the mobile class filter (multi-select)
+ * @param {Array} data - Array of class objects
+ * @param {string} tableId - ID of the table to insert filter before
+ */
+function createMobileClassNav(data, tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    
+    const tableWrapper = table.closest('.table-wrapper');
+    if (!tableWrapper) return;
+    
+    // Generate unique nav ID based on table ID
+    const navId = 'mobileClassNav-' + tableId;
+    
+    // Check if filter already exists
+    let navContainer = document.getElementById(navId);
+    
+    if (!navContainer) {
+        // Create the filter container
+        navContainer = document.createElement('div');
+        navContainer.id = navId;
+        navContainer.className = 'mobile-class-nav';
+        
+        // Create header with label and toggle button
+        const header = document.createElement('div');
+        header.className = 'mobile-filter-header';
+        
+        const label = document.createElement('span');
+        label.className = 'mobile-filter-label';
+        label.textContent = 'Filter classes:';
+        
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'mobile-filter-toggle';
+        toggleBtn.textContent = 'Show all ▼';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        
+        header.appendChild(label);
+        header.appendChild(toggleBtn);
+        
+        // Create the checkbox list container (hidden by default)
+        const checkboxList = document.createElement('div');
+        checkboxList.className = 'mobile-filter-list';
+        checkboxList.setAttribute('aria-hidden', 'true');
+        
+        // Create "Select All / Clear All" buttons
+        const actionRow = document.createElement('div');
+        actionRow.className = 'mobile-filter-actions';
+        
+        const selectAllBtn = document.createElement('button');
+        selectAllBtn.className = 'mobile-filter-action-btn';
+        selectAllBtn.textContent = 'Select all';
+        selectAllBtn.type = 'button';
+        
+        const clearAllBtn = document.createElement('button');
+        clearAllBtn.className = 'mobile-filter-action-btn';
+        clearAllBtn.textContent = 'Clear all';
+        clearAllBtn.type = 'button';
+        
+        actionRow.appendChild(selectAllBtn);
+        actionRow.appendChild(clearAllBtn);
+        checkboxList.appendChild(actionRow);
+        
+        // Create checkbox container
+        const checkboxContainer = document.createElement('div');
+        checkboxContainer.className = 'mobile-filter-checkboxes';
+        checkboxList.appendChild(checkboxContainer);
+        
+        navContainer.appendChild(header);
+        navContainer.appendChild(checkboxList);
+        
+        // Insert before the table wrapper
+        tableWrapper.parentNode.insertBefore(navContainer, tableWrapper);
+        
+        // Toggle dropdown visibility
+        toggleBtn.addEventListener('click', function() {
+            const isExpanded = checkboxList.classList.toggle('expanded');
+            this.setAttribute('aria-expanded', isExpanded);
+            checkboxList.setAttribute('aria-hidden', !isExpanded);
+            this.textContent = isExpanded ? 'Show all ▲' : 'Show all ▼';
+        });
+        
+        // Select All button
+        selectAllBtn.addEventListener('click', function() {
+            const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = true);
+            applyClassFilter(tableId, checkboxContainer, toggleBtn);
+        });
+        
+        // Clear All button
+        clearAllBtn.addEventListener('click', function() {
+            const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            applyClassFilter(tableId, checkboxContainer, toggleBtn);
+        });
+    }
+    
+    // Get the checkbox container
+    const checkboxContainer = navContainer.querySelector('.mobile-filter-checkboxes');
+    const toggleBtn = navContainer.querySelector('.mobile-filter-toggle');
+    checkboxContainer.innerHTML = '';
+    
+    // Create checkboxes for each class
+    data.forEach(item => {
+        const itemId = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        
+        const checkboxWrapper = document.createElement('label');
+        checkboxWrapper.className = 'mobile-filter-item';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = itemId;
+        checkbox.checked = false; // Start unchecked (show all)
+        
+        // Strip HTML from name
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = item.name;
+        const className = tempDiv.textContent || tempDiv.innerText;
+        
+        const labelText = document.createElement('span');
+        labelText.textContent = className;
+        
+        checkboxWrapper.appendChild(checkbox);
+        checkboxWrapper.appendChild(labelText);
+        checkboxContainer.appendChild(checkboxWrapper);
+        
+        // Add change listener
+        checkbox.addEventListener('change', function() {
+            applyClassFilter(tableId, checkboxContainer, toggleBtn);
+        });
+    });
+    
+    // Update button text to show initial state
+    toggleBtn.textContent = 'Show all ▼';
+}
+
+/**
+ * Apply the class filter based on checked checkboxes
+ * @param {string} tableId - ID of the table
+ * @param {HTMLElement} checkboxContainer - Container with checkboxes
+ * @param {HTMLElement} toggleBtn - The toggle button to update text
+ */
+function applyClassFilter(tableId, checkboxContainer, toggleBtn) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    
+    const tbody = table.querySelector('tbody');
+    if (!tbody) return;
+    
+    const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+    const checkedValues = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+    
+    const rows = tbody.querySelectorAll('tr');
+    
+    // If nothing is checked, show all
+    const showAll = checkedValues.length === 0;
+    
+    rows.forEach(row => {
+        if (showAll || checkedValues.includes(row.id)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    
+    // Update button text
+    if (showAll) {
+        toggleBtn.textContent = toggleBtn.getAttribute('aria-expanded') === 'true' 
+            ? 'Show all ▲' 
+            : 'Show all ▼';
+    } else {
+        const arrow = toggleBtn.getAttribute('aria-expanded') === 'true' ? '▲' : '▼';
+        toggleBtn.textContent = `${checkedValues.length} selected ${arrow}`;
+    }
+    
+    // Update visible count if element exists
+    const visibleCount = document.getElementById('visibleCount');
+    if (visibleCount) {
+        const visibleRows = tbody.querySelectorAll('tr:not([style*="display: none"])').length;
+        visibleCount.textContent = visibleRows;
+    }
 }

@@ -24,6 +24,14 @@ class SmallWorldMeshBackground {
             return;
         }
 
+        // Check if on mobile device - don't run animation on mobile
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+            // Hide the canvas on mobile
+            this.canvas.style.display = 'none';
+            return;
+        }
+
         this.ctx = this.canvas.getContext('2d');
         this.nodes = [];
         this.shortcuts = []; // Active shortcut edges
