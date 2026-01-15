@@ -42,6 +42,20 @@
     "link": "http://krusz.net/feel-better.html"
   },
   {
+    "name": "The Rainbow Kitchen",
+    "id": "the-rainbow-kitchen",
+    "description": "This is a class specifically designed for all the adults who were never taught how to cook and feel too overwhelmed to know where to start learning. You will learn about food and knife safety, how to prepare and cook a variety of dishes, as well as how to grocery shop effectively for your diet and budget!<br><br><span class='announcement'><b><u>Application deadline: Jan 30</u></b></span>",
+    "instructor": "Alexander Donald",
+    "when": "Wednesdays 10am-1pm,<br>Feb 4-Mar 25,<br>7 meetings<br>(break on Feb 18)",
+    "dayOrder": "3.5",
+    "timeOrder": "1000",
+    "start": "Wed, Feb 4",
+    "duration": "7 weeks",
+    "whenSort1": "1",
+    "where": "Southeast San Diego,<br>Address provided to  enrollees.",
+    "link": "classes/winter2026/the-rainbow-kitchen.html"
+  },
+  {
     "name": "This Is For Everybody",
     "id": "this-is-for-everybody",
     "description": "In this class you will participate in a series of games and playful exercises to increase creativity and emotional resilience.",
@@ -100,7 +114,7 @@
   {
     "name": "A Primer On Non-Violent Communication",
     "id": "a-primer-on-nva",
-    "description": "This one-off class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.<br><br><span class='announcement'><b><u>Applications deadline: Feb 13</u></b></span>",
+    "description": "This one-off class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.<br><br><span class='announcement'><b><u>Application deadline: Feb 13</u></b></span>",
     "instructor": "Alex T",
     "when": "Friday Feb 20 6-7:30pm,<br>1 meeting",
     "dayOrder": "5",
@@ -120,7 +134,7 @@
     "dayOrder": "5.1",
     "timeOrder": "0000",
     "start": "Fri, Feb 27",
-    "duration": "1 week",
+    "duration": "2 weeks",
     "whenSort1": "9",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/winter2026/us-against-when.html"
@@ -170,7 +184,7 @@
    {
      "name": "Architecture & Urbanism in San Diego: A Walking Tour",
      "id": "architecture-urbanism",
-     "description": "Four walking tours through which we will explore topics in urban design, city planning, and how they relate to the development of San Diego.<br><br><u>Note: you can sign up for each week independently of the others!</u><br><br><span class='announcement'><b><u>Applications deadline: Jan 25</u></b></span>",
+     "description": "Four walking tours through which we will explore topics in urban design, city planning, and how they relate to the development of San Diego.<br><br><u>Note: you can sign up for each week independently of the others!</u><br><br><span class='announcement'><b><u>Application deadline: Jan 25</u></b></span>",
      "instructor": "Megan W and Dorrie B",
      "when": "4 independent sessions every other Saturday:<br>Jan 31, 3-5pm: Bankers Hill/Balboa Park,<br>Feb 14, 3-5pm: Barrio Logan,<br>Feb 28, 2-5pm: Valleys, Rivers, & Trolleys,<br>Mar 14, time TBA: Final Urbanism Project!",
      "dayOrder": "6",
