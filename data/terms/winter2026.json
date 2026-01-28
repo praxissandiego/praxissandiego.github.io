@@ -42,20 +42,6 @@
     "link": "http://krusz.net/feel-better.html"
   },
   {
-    "name": "The Rainbow Kitchen",
-    "id": "the-rainbow-kitchen",
-    "description": "This is a class specifically designed for all the adults who were never taught how to cook and feel too overwhelmed to know where to start learning. You will learn about food and knife safety, how to prepare and cook a variety of dishes, as well as how to grocery shop effectively for your diet and budget!<br><br><span class='announcement'><b><u>Application deadline: Jan 30</u></b></span>",
-    "instructor": "Alexander Donald",
-    "when": "Wednesdays 10am-1pm,<br>Feb 4-Mar 25,<br>7 meetings<br>(break on Feb 18)",
-    "dayOrder": "3.5",
-    "timeOrder": "1000",
-    "start": "Wed, Feb 4",
-    "duration": "7 weeks",
-    "whenSort1": "1",
-    "where": "Southeast San Diego,<br>Address provided to  enrollees.",
-    "link": "classes/winter2026/the-rainbow-kitchen.html"
-  },
-  {
     "name": "This Is For Everybody",
     "id": "this-is-for-everybody",
     "description": "In this class you will participate in a series of games and playful exercises to increase creativity and emotional resilience.",
