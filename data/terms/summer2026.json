@@ -158,13 +158,13 @@
     "id": "meditation-and-embodiment",
     "description": "Each session, we’ll try one mindbody practice together, then discuss it or other stuff we’ve been practicing recently.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
     "instructor": "Alex Krusz",
-    "when": "",
+    "when": "Weekly meeting starting the week of Jul 13-19,<br>Dates and times TBD,<br>see <a href='#apply'>application form</a>",
     "dayOrder": "6",
     "timeOrder": "1000",
     "start": "Sat, Jul 18",
-    "duration": "",
+    "duration": "10 weeks",
     "whenSort1": "12",
-    "where": "",
+    "where": "Serra Mesa,<br>Address provided to enrollees.<br><br>Field trips, if we do them, will be announced ahead of time.",
     "link": "https://krusz.net/meditation-meetup/"
   },
   {
@@ -220,7 +220,7 @@
     "start": "Thu, Aug 13",
     "duration": "2 weeks",
     "whenSort1": "16",
-    "where": "",
+    "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/summer2026/lets-talk-crypto.html"
   },
   {
