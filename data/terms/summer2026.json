@@ -27,20 +27,7 @@
     "where": "Mission Valley,<br>Address provided to enrollees.",
     "link": "classes/summer2026/music-from-around-the-world.html"
   },
-  {
-    "name": "Tai Chi — Yang Style Short Form",
-    "id": "tai-chi",
-    "description": "Improve balance and coordination through mindful movement.<br><br>Price: $60, reduced price or free attendance is also available",
-    "instructor": "Quin Herron",
-    "when": "Tuesdays and Thursdays,<br>Jun 23-Aug 13<br>14 meetings over 7 weeks<br>(break on Jul 21 & 23)",
-    "dayOrder": "2",
-    "timeOrder": "1530",
-    "start": "Tue, Jun 23",
-    "duration": "7 weeks",
-    "whenSort1": "3",
-    "where": "Morley Field Shuffleboard Court in front of <a href='https://maps.app.goo.gl/ArSx392pTUnqwcjB8'>the San Diego Petanque Club</a>",
-    "link": "classes/summer2026/tai-chi.html"
-  },
+
   {
     "name": "Design Of Tools For Thought",
     "id": "conceptual-systems-engineering",
@@ -51,7 +38,7 @@
     "timeOrder": "1800",
     "start": "Tue, Jun 23",
     "duration": "6 weeks",
-    "whenSort1": "4",
+    "whenSort1": "3",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/summer2026/conceptual-systems-engineering.html"
   },
@@ -65,7 +52,7 @@
     "timeOrder": "1800",
     "start": "Thu, Jun 25",
     "duration": "6 weeks",
-    "whenSort1": "5",
+    "whenSort1": "4",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "http://olivialucileclark.com/family-history-research-an-introduction"
   },
@@ -79,7 +66,7 @@
     "timeOrder": "1430",
     "start": "Sat, Jun 27",
     "duration": "10 weeks",
-    "whenSort1": "6",
+    "whenSort1": "5",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/summer2026/culture-as-data.html"
   },
@@ -93,9 +80,23 @@
     "timeOrder": "1200",
     "start": "Sun, Jun 28",
     "duration": "5 weeks",
-    "whenSort1": "7",
+    "whenSort1": "6",
     "where": "Clairemont,<br>Address provided to enrollees.",
     "link": "classes/summer2026/the-dawn-of-everything.html"
+  },
+  {
+    "name": "Tai Chi — Yang Style Short Form",
+    "id": "tai-chi",
+    "description": "Improve balance and coordination through mindful movement.<br>Price: $60, reduced price or free attendance is also available.<br><br><span class='announcement'><b><u>Application deadline: Jun 28</u></b></span>",
+    "instructor": "Quin Herron",
+    "when": "Tuesdays and Thursdays,<br>Jun 30-Aug 13<br>12 meetings over 6 weeks<br>(break on Jul 21 & 23)",
+    "dayOrder": "2",
+    "timeOrder": "1530",
+    "start": "Tue, Jun 23",
+    "duration": "6 weeks",
+    "whenSort1": "7",
+    "where": "Morley Field Shuffleboard Court in front of <a href='https://maps.app.goo.gl/ArSx392pTUnqwcjB8'>the San Diego Petanque Club</a>",
+    "link": "classes/summer2026/tai-chi.html"
   },
   {
     "name": "Short Stories: The Mundane And The Magic",
@@ -158,7 +159,7 @@
     "id": "meditation-and-embodiment",
     "description": "Each session, we’ll try one mindbody practice together, then discuss it or other stuff we’ve been practicing recently.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
     "instructor": "Alex Krusz",
-    "when": "Weekly meeting starting the week of Jul 13-19,<br>Dates and times TBD,<br>see <a href='#apply'>application form</a>",
+    "when": "Weekly meeting starting the week of Jul 13-19,<br>Dates and times TBD,<br>see <a href='#apply'>application form</a>.",
     "dayOrder": "6",
     "timeOrder": "1000",
     "start": "Sat, Jul 18",
