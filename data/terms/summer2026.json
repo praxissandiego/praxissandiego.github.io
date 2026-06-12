@@ -1,7 +1,7 @@
 [
   {
-    "name": "Making The World A Better Place, One Step At A Time",
-    "id": "making-the-world-a-better-place",
+    "name": "Taking Action For A Better World, One Step At A Time",
+    "id": "taking-action-for-a-better-world",
     "description": "This is a discussion group oriented towards those who have felt an itch, a pull, maybe even a twinge of guilt, towards getting more involved in the work of making the world a better place and would like to figure out their next steps with other like-minded folks.",
     "instructor": "Dorrie B",
     "when": "Mondays 6:30-8pm,<br>Jun 22-Jul 20<br>and Aug 24,<br>6 meetings<br><br>+independent activity <br> Jul 27-Aug 23<br>",
@@ -11,7 +11,7 @@
     "duration": "6 weeks",
     "whenSort1": "1",
     "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/summer2026/making-the-world-a-better-place.html"
+    "link": "classes/summer2026/taking-action-for-a-better-world.html"
   },
   {
     "name": "Music From Around The World",
@@ -184,7 +184,7 @@
   },
   {
     "name": "A Primer On Non-Violent Communication",
-    "id": "a-primer-on-nva",
+    "id": "a-primer-on-nvc",
     "description": "This two week class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.",
     "instructor": "Alex T & Dorrie B",
     "when": "Fridays 6:30-8pm,<br>Jul 31 & Aug 7,<br>2 meetings",
@@ -194,7 +194,7 @@
     "duration": "2 weeks",
     "whenSort1": "14",
     "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/summer2026/a-primer-on-nva.html"
+    "link": "classes/summer2026/a-primer-on-nvc.html"
   },
   {
    "name": "Understanding AI: From Philosophical Underpinnings To Practical Tips",
