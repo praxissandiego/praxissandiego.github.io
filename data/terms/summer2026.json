@@ -14,21 +14,6 @@
     "link": "classes/summer2026/taking-action-for-a-better-world.html"
   },
   {
-    "name": "Music From Around The World",
-    "id": "music-from-around-the-world",
-    "description": "7 Continents, 195 sovereign states. Let’s travel the globe discovering music, arts, and culture!",
-    "instructor": "Leela H",
-    "when": "Mondays 6:45-8:15pm,<br>Jun 22-Aug 3<br>6 meetings<br>(break on Jul 20)<br><br>+potential bonus class on Aug 10",
-    "dayOrder": "1",
-    "timeOrder": "1845",
-    "start": "Mon, Jun 22",
-    "duration": "6 weeks",
-    "whenSort1": "2",
-    "where": "Mission Valley,<br>Address provided to enrollees.",
-    "link": "classes/summer2026/music-from-around-the-world.html"
-  },
-
-  {
     "name": "Design Of Tools For Thought",
     "id": "design-of-tools-for-thought",
     "description": "How would you think without words, numbers, maps, metaphors, or writing? Much of what feels for us like \"just thinking\" actually depends on <i>tools</i> for thought, either tools outside our minds or ones we've internalized so thoroughly we've forgotten we did. Over six weeks we'll explore how such tools shape our thinking and try the craft of designing our own.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
@@ -38,7 +23,7 @@
     "timeOrder": "1800",
     "start": "Tue, Jun 23",
     "duration": "6 weeks",
-    "whenSort1": "3",
+    "whenSort1": "2",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/summer2026/design-of-tools-for-thought.html"
   },
@@ -52,7 +37,7 @@
     "timeOrder": "1800",
     "start": "Thu, Jun 25",
     "duration": "6 weeks",
-    "whenSort1": "4",
+    "whenSort1": "3",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "http://olivialucileclark.com/family-history-research-an-introduction"
   },
@@ -66,7 +51,7 @@
     "timeOrder": "1430",
     "start": "Sat, Jun 27",
     "duration": "10 weeks",
-    "whenSort1": "5",
+    "whenSort1": "4",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/summer2026/culture-as-data.html"
   },
@@ -80,9 +65,23 @@
     "timeOrder": "1630",
     "start": "Sun, Jun 28",
     "duration": "5 weeks",
-    "whenSort1": "6",
+    "whenSort1": "5",
     "where": "Clairemont,<br>Address provided to enrollees.",
     "link": "classes/summer2026/the-dawn-of-everything.html"
+  },
+  {
+    "name": "Music From Around The World",
+    "id": "music-from-around-the-world",
+    "description": "7 Continents, 195 sovereign states. Let’s travel the globe discovering music, arts, and culture!<br><br><span class='announcement'><b><u>Application deadline: Jun 28</u></b></span>",
+    "instructor": "Leela H",
+    "when": "Mondays 6:45-8:15pm,<br>Jun 29-Aug 10<br>6 meetings<br>(break on Jul 20)<br><br>+potential bonus class on Aug 17",
+    "dayOrder": "1",
+    "timeOrder": "1845",
+    "start": "Mon, Jun 22",
+    "duration": "6 weeks",
+    "whenSort1": "6",
+    "where": "Mission Valley,<br>Address provided to enrollees.",
+    "link": "classes/summer2026/music-from-around-the-world.html"
   },
   {
     "name": "Tai Chi — Yang Style Short Form",
