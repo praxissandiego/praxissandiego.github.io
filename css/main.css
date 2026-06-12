@@ -585,6 +585,7 @@ ul li::marker {
     transition: transform 0.3s ease;
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .menu-panel.active {
@@ -680,7 +681,7 @@ ul li::marker {
 }
 
 .submenu.expanded {
-    max-height: 1000px;
+    max-height: 4000px;
     opacity: 1;
 }
 
@@ -720,14 +721,58 @@ ul li::marker {
     color: #c53030;
 }
 
-.term-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-    margin-left: 6px;
-    color: #666;
+/* Term groups inside "Past Terms" submenu */
+.term-group {
+    margin: 0;
+}
+
+.term-group::marker {
+    content: none;
+}
+
+.term-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 10px 16px 10px 32px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #444;
+    text-align: left;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.term-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.term-classes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.term-classes li::marker {
+    content: none;
+}
+
+.term-classes.expanded {
+    max-height: 1500px;
+    opacity: 1;
+}
+
+.term-classes .submenu-item a {
+    padding-left: 44px;
 }
 
 /* Body and container state when menu is open */

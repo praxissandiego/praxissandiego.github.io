@@ -2,7 +2,8 @@
 
 /**
  * Navigation Menu for Praxis San Diego
- * Hamburger menu with expandable submenus loaded dynamically from JSON
+ * Hamburger menu with expandable submenus loaded dynamically from JSON.
+ * "Past Terms" contains one foldable group per archived term.
  */
 
 class NavigationMenu {
@@ -11,25 +12,26 @@ class NavigationMenu {
         this.menuData = {
             main: [
                 { name: 'Home', href: '/index.html', hasSubmenu: false },
-                { name: 'Community University', href: '/university.html', hasSubmenu: true, submenuId: 'university' },
-                { name: 'Class Archive', href: '/classes/archive.html', hasSubmenu: true, submenuId: 'archive' }
+                { name: 'Community University', href: '/university/index.html', hasSubmenu: true, submenuId: 'university' },
+                { name: 'Past Terms', href: '/university/classes/archive.html', hasSubmenu: true, submenuId: 'archive' }
             ],
             terms: {
                 current: {
                     name: 'Summer 2026',
                     path: '/data/terms/summer2026.json',
-                    linkPrefix: '/classes/summer2026/'
+                    linkPrefix: '/university/classes/summer2026/'
                 },
+                // Listed newest first in the menu
                 archived: [
-                    {
-                        name: 'Fall 2025',
-                        path: '/data/terms/fall2025.json',
-                        linkPrefix: '/classes/fall2025/'
-                    },
                     {
                         name: 'Winter 2026',
                         path: '/data/terms/winter2026.json',
-                        linkPrefix: '/classes/winter2026/'
+                        linkPrefix: '/university/classes/winter2026/'
+                    },
+                    {
+                        name: 'Fall 2025',
+                        path: '/data/terms/fall2025.json',
+                        linkPrefix: '/university/classes/fall2025/'
                     }
                 ]
             }
@@ -103,7 +105,6 @@ class NavigationMenu {
     attachEventListeners() {
         const menuToggle = document.getElementById('menuToggle');
         const menuOverlay = document.getElementById('menuOverlay');
-        const menuPanel = document.getElementById('menuPanel');
 
         // Toggle menu on button click
         menuToggle.addEventListener('click', (e) => {
@@ -205,40 +206,42 @@ class NavigationMenu {
                         : this.menuData.terms.current.linkPrefix + c.link.split('/').pop()
                 }));
                 this.populateSubmenu('university', this.classData.university);
+            } else {
+                this.populateSubmenuError('university');
             }
         } catch (error) {
             console.error('Error loading current term classes:', error);
             this.populateSubmenuError('university');
         }
 
-        // Load archived term classes for archive submenu
+        // Load archived terms as foldable per-term groups
         try {
-            const allArchiveClasses = [];
+            const termGroups = [];
             for (const term of this.menuData.terms.archived) {
                 const response = await fetch(term.path);
                 if (response.ok) {
                     const classes = await response.json();
-                    classes.forEach(c => {
-                        allArchiveClasses.push({
+                    termGroups.push({
+                        name: term.name,
+                        classes: classes.map(c => ({
                             name: c.name,
                             // Don't modify absolute URLs (external links)
                             href: c.link.startsWith('http://') || c.link.startsWith('https://')
                                 ? c.link
-                                : term.linkPrefix + c.link.split('/').pop(),
-                            term: term.name
-                        });
+                                : term.linkPrefix + c.link.split('/').pop()
+                        }))
                     });
                 }
             }
-            this.classData.archive = allArchiveClasses;
-            this.populateSubmenu('archive', this.classData.archive, true);
+            this.classData.archive = termGroups;
+            this.populateArchiveSubmenu(termGroups);
         } catch (error) {
             console.error('Error loading archive classes:', error);
             this.populateSubmenuError('archive');
         }
     }
 
-    populateSubmenu(submenuId, classes, showTerm = false) {
+    populateSubmenu(submenuId, classes) {
         const submenu = document.getElementById(`submenu-${submenuId}`);
         if (!submenu) return;
 
@@ -249,9 +252,48 @@ class NavigationMenu {
 
         submenu.innerHTML = classes.map(c => `
             <li class="submenu-item">
-                <a href="${c.href}">${c.name}${showTerm && c.term ? ` <span class="term-badge">${c.term}</span>` : ''}</a>
+                <a href="${c.href}">${c.name}</a>
             </li>
         `).join('');
+    }
+
+    populateArchiveSubmenu(termGroups) {
+        const submenu = document.getElementById('submenu-archive');
+        if (!submenu) return;
+
+        if (termGroups.length === 0) {
+            submenu.innerHTML = '<li class="submenu-item empty">No past terms available</li>';
+            return;
+        }
+
+        submenu.innerHTML = termGroups.map(group => `
+            <li class="term-group">
+                <button class="term-toggle" aria-expanded="false" aria-label="Toggle ${group.name} classes">
+                    <span class="term-name">${group.name}</span>
+                    <span class="submenu-arrow">\u203A</span>
+                </button>
+                <ul class="term-classes">
+                    ${group.classes.map(c => `
+                        <li class="submenu-item">
+                            <a href="${c.href}">${c.name}</a>
+                        </li>
+                    `).join('')}
+                </ul>
+            </li>
+        `).join('');
+
+        // Attach fold/unfold behavior for each term group
+        submenu.querySelectorAll('.term-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const list = btn.nextElementSibling;
+                const arrow = btn.querySelector('.submenu-arrow');
+                const expanded = list.classList.toggle('expanded');
+                arrow.classList.toggle('rotated', expanded);
+                btn.setAttribute('aria-expanded', expanded);
+            });
+        });
     }
 
     populateSubmenuError(submenuId) {

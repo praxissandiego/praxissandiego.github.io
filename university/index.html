@@ -26,7 +26,7 @@
         <header>
             <div class="header-content">
                 <h1>Praxis Community University</h1>
-                <a href="index.html" class="back-link">← to Praxis SD</a>
+                <a href="../index.html" class="back-link">← to Praxis SD</a>
             </div>
         </header>
 
@@ -37,9 +37,7 @@
                 <a href="https://shoshincollege.org/">Shoshin College</a>,
                 <a href="https://antiuniversity.org/">AntiUniversity Now</a> and other similar efforts across the world.
             </p>
-            <p>
-                You can browse all the past classes offered at Praxis CU in our <a href="classes/archive.html">class archive</a>.
-            </p>
+
             <h3>Summer 2026</h3>
             <p>
                 <b><u> <a href="#apply">Registration is open</a> for our Summer 2026 term!</u></b> You can find the classes, clubs, workshops, and any other events we are offering this time and the information about them below.
@@ -48,6 +46,11 @@
               </p>
               <p>
                 If you have any questions, don't hesitate to <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com"> email us</a>!
+            </p>
+
+            <h3>Past Terms</h3>
+            <p>
+                You can browse all the past classes offered at Praxis CU in our <a href="classes/archive.html">class archive</a>.
             </p>
         </div>
 
@@ -126,6 +129,17 @@
 
                 // Initialize filters and sorting
                 initializeControls();
+
+                // Rows are added after page load, so the browser's native anchor
+                // scroll fires too early — redo it once the table is populated.
+                if (window.location.hash) {
+                    const target = document.getElementById(decodeURIComponent(window.location.hash.substring(1)));
+                    if (target) {
+                      document.documentElement.style.scrollBehavior = 'auto';
+                      target.scrollIntoView({ block: 'center' });
+                      document.documentElement.style.scrollBehavior = '';
+                    }
+                }
 
             } catch (error) {
                 console.error('Error loading data:', error);

@@ -73,12 +73,12 @@
             {
                 name: 'Fall 2025',
                 path: '/data/terms/fall2025.json',
-                linkPrefix: '/../'
+                linkPrefix: '/university/'
             },
             {
                 name: 'Winter 2026',
                 path: '/data/terms/winter2026.json',
-                linkPrefix: '/../'
+                linkPrefix: '/university/'
             }
         ];
 
@@ -102,6 +102,15 @@
 
                 // Initialize controls
                 initializeControls();
+
+                // Rows are added after page load, so the browser's native anchor
+                // scroll fires too early — redo it once the table is populated.
+                if (window.location.hash) {
+                    const target = document.getElementById(decodeURIComponent(window.location.hash.substring(1)));
+                    if (target) {
+                      target.scrollIntoView({ block: 'center' });
+                    }
+                }
 
             } catch (error) {
                 console.error('Error loading archive:', error);
