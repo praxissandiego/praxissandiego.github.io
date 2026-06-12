@@ -30,8 +30,8 @@
 
   {
     "name": "Design Of Tools For Thought",
-    "id": "conceptual-systems-engineering",
-    "description": "How do different tools for thought affect our thinking and can we design new ones? Let's learn!<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
+    "id": "design-of-tools-for-thought",
+    "description": "How would you think without words, numbers, maps, metaphors, or writing? Much of what feels for us like \"just thinking\" actually depends on <i>tools</i> for thought, either tools outside our minds or ones we've internalized so thoroughly we've forgotten we did. Over six weeks we'll explore how such tools shape our thinking and try the craft of designing our own.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
     "instructor": "Arthur C",
     "when": "Tuesdays 6-7:30pm,<br>Jun 23-Aug 4<br>6 meetings<br>(break on Jul 21)",
     "dayOrder": "2",
@@ -40,7 +40,7 @@
     "duration": "6 weeks",
     "whenSort1": "3",
     "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/summer2026/conceptual-systems-engineering.html"
+    "link": "classes/summer2026/design-of-tools-for-thought.html"
   },
   {
     "name": "Family History Research: An Introduction",
