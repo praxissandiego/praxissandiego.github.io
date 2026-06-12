@@ -44,10 +44,10 @@
             <div class="table-section">
                 <h2>Events</h2>
                 <p>
-                    <strong>Monthly hang outs:</strong> soon we will start hosting monthly hang outs, jams where you can enjoy your time with others —— talk, have food, play boardgames ——  but also do something on your own —— read, work on a craft, or finish a project —— just in the company of others! Everyone is welcome to join and participate in whatever is happening or bring their own activity.
+                    <strong>Monthly picnics:</strong> every third Saturday of the month, we host a potluck picnic. There you can socialize with others —— talk, eat food, play outdoor games or boardgames —— but also do something on your own —— read, work on a craft, or finish a project —— just in the company of friends and neighbors. The picnic usually, but not always, is at Old Trolley Barn Park. Everyone is welcome to hang out and participate in whatever is happening that day or bring their own activity!
                 </p>
                 <p>
-                    <strong>Independent research group:</strong> every Monday we hold an independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share our progress, and give feedback to each other.
+                    <strong>Independent research group:</strong> starting Wednesday July 1st, we will resume our independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share progress updates, and give feedback to each other.
                 </p>
                 <p>
                     If either of these events sound fun, reach out through <a href="#apply">the form at the bottom of the page</a>!
@@ -55,12 +55,12 @@
             </div>
 
             <div class="table-section">
-                <h2><a href="university.html"><u>Community University</u></a></h2>
+                <h2><a href="university/index.html"><u>Community University</u></a></h2>
                 <p>
-                    We started a <a href="university.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here.
+                    We started a <a href="university/index.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here.
                 </p>
                 <p>
-                    Below are the classes of our second term starting in January 19th 2026:
+                    Below are the classes of our third term starting in June 22nd 2026:
                 </p>
                 <div class="table-wrapper">
                     <table id="table1" class="table-index">
@@ -79,7 +79,7 @@
                 </div>
                 <br>
                 <p>
-                    <b><u>The registration for most classes is open until January 18 or until they get filled, but some classes have later deadlines.</u></b> If you want to learn more and register, <a href="university.html" class="view-full">click here</a> to visit our community university page!
+                    <b><u>The registration for most classes is open until June 21 11:59pm or until they get filled, but some classes have later deadlines.</u></b> If you want to learn more and register, <a href="university/index.html" class="view-full">click here</a> to visit our community university page!
                 </p>
             </div>
         </div>
@@ -104,7 +104,7 @@
         async function loadTableData() {
             try {
                 // Load university data
-                const CURRENT_TERM = 'winter2026';
+                const CURRENT_TERM = 'summer2026';
                 const universityResponse = await fetch(`data/terms/${CURRENT_TERM}.json`);
                 const universityData = await universityResponse.json();
 
