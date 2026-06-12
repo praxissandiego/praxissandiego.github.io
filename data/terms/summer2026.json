@@ -201,7 +201,7 @@
    "id": "understanding-ai",
    "description": "We will look at AI, especially LLMs, from a variety of perspectives -- including, but not limited to philosophical, historical, cognitive, and technical -- to deeply understand it and gain practical knowledge of how to use it skillfully and wisely.<br><br><span class='announcement'><b><u>Application deadline: Jul 27</u></b></span>",
    "instructor": "Arthur C",
-   "when": "Saturdays 12-2pm,<br>Aug 1-Sep 12,<br>8 meetings",
+   "when": "Saturdays 12-2pm,<br>Aug 1-Sep 19,<br>8 meetings",
    "dayOrder": "6",
    "timeOrder": "1200",
    "start": "Sat, Aug 1",
@@ -222,7 +222,7 @@
     "duration": "2 weeks",
     "whenSort1": "16",
     "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/summer2026/lets-talk-crypto.html"
+    "link": "https://krusz.net/crypto-class/"
   },
   {
     "name": "Harm Reduction Is Survival",
