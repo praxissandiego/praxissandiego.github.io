@@ -128,7 +128,7 @@
                         // Handle external links properly
                         const href = item.link.startsWith('http://') || item.link.startsWith('https://')
                             ? item.link
-                            : item.link;
+                            : 'university/' + item.link;
                         row.innerHTML = `
                             <td><a href="${href}">${item.name}</a></td>
                             <td>${item.start}</td>
@@ -211,7 +211,7 @@
                             row.id = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                             const href = item.link.startsWith('http://') || item.link.startsWith('https://')
                                 ? item.link
-                                : item.link;
+                                : 'university/' + item.link;
                             row.innerHTML = `
                                 <td><a href="${href}">${item.name}</a></td>
                                 <td>${item.start}</td>
