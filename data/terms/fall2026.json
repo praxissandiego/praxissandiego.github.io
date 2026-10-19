@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Essay Club: On Thinking, Systems, and Seriousness",
+    "id": "essay-club",
+    "description": "This class is an essay club, specifically an essay-reading club. Think of it as a normal reading club... but with essays. This is for you if you want a little more lively discussion in your life. I'm teaching this class because I want that, and I want to widen my perspectives on life!",
+    "instructor": "Cornel Amler",
+    "when": "Sundays 10-11am,<br>Oct 25-Nov 15<br>4 meetings",
+    "dayOrder": "7",
+    "timeOrder": "1000",
+    "start": "Sun, Oct 25",
+    "duration": "4 weeks",
+    "whenSort1": "1",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/fall2026/essay-club.html"
+  },
+  {
+    "name": "Erudite Writing Workshop",
+    "id": "erudite-writing-workshop",
+    "description": "This 8-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.",
+    "instructor": "Karyssa Newsome",
+    "when": "Tuesdays 7:15-8:30pm,<br>Oct 27-Dec 22,<br>8 meetings<br>(break on Nov 24)",
+    "dayOrder": "2",
+    "timeOrder": "1915",
+    "start": "Tue, Oct 27",
+    "duration": "8 weeks",
+    "whenSort1": "2",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/fall2026/erudite-writing-workshop.html"
+  },
+  {
+    "name": "Activism In The Era Of Oppression: Defending The Indigent Through The Rule Of Law",
+    "id": "activism-in-the-era-of-oppression",
+    "description": "A class to demystify the law and study how it can be used for revolutionary change.<br><br><span class='announcement'><b><u>Application deadline: Oct 27</u></b></span>",
+    "instructor": "Annie Rios",
+    "when": "Thursdays 6-7:30pm,<br>Oct 29-Nov 12<br>3 meetings",
+    "dayOrder": "3",
+    "timeOrder": "1830",
+    "start": "Thu, Oct 29",
+    "duration": "3 weeks",
+    "whenSort1": "5",
+    "where": "<a href='http://www.weareheartspace.com/'>heARTspace</a>,<br><a href='https://maps.app.goo.gl/A7Laftv4YA9LtkdY7'>3619 El Cajon Blvd</a>",
+    "link": "classes/fall2026/activism-in-the-era-of-oppression.html"
+  }
+]
