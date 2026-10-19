@@ -40,5 +40,19 @@
     "whenSort1": "5",
     "where": "<a href='http://www.weareheartspace.com/'>heARTspace</a>,<br><a href='https://maps.app.goo.gl/A7Laftv4YA9LtkdY7'>3619 El Cajon Blvd</a>",
     "link": "classes/fall2026/activism-in-the-era-of-oppression.html"
+  },
+  {
+    "name": "The Dawn Of Everything: A Guided Reading -- Part 2",
+    "id": "the-dawn-of-everything",
+    "description": "Join us to learn why <i>\"this is just how things are\"</i> is the biggest lie ever told about human history.",
+    "instructor": "Alina G",
+    "when": "Sundays Nov 1, Nov 15, Nov 29, & Dec 13<br>4:30-6pm<br>4 meetings",
+    "dayOrder": "7",
+    "timeOrder": "1630",
+    "start": "Sun, Nov 1",
+    "duration": "4 weeks",
+    "whenSort1": "6",
+    "where": "Clairemont,<br>Address provided to enrollees.",
+    "link": "classes/fall2026/the-dawn-of-everything.html"
   }
 ]
