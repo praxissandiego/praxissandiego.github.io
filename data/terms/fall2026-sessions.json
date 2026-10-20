@@ -1,0 +1,97 @@
+{
+  "_howto": "Meeting dates for the term calendar on university/index.html. Keys under 'classes' must match the 'id' values in fall2026.json. Times are 24h, Pacific time. 'location' is what goes into calendar entries. 'note' is optional and shows up on the calendar and in the downloaded event.",
+  "term": "Fall 2026",
+  "timezone": "America/Los_Angeles",
+  "classes": {
+    "essay-club": {
+      "location": "North Park",
+      "sessions": [
+        { "date": "2026-10-25", "start": "10:00", "end": "11:00", "note": "Eliezer Yudkowsky, “Making Beliefs Pay Rent (in Anticipated Experiences)”" },
+        { "date": "2026-11-01", "start": "10:00", "end": "11:00", "note": "David Chapman, “How To Think Real Good”" },
+        { "date": "2026-11-08", "start": "10:00", "end": "11:00", "note": "Scott Alexander, “Meditations on Moloch”" },
+        { "date": "2026-11-15", "start": "10:00", "end": "11:00", "note": "Visakan Veerasamy, “Are you serious?”" }
+      ]
+    },
+    "tai-chi": {
+      "location": "Morley Field (San Diego Petanque Club)",
+      "sessions": [
+        { "date": "2026-10-27", "start": "15:30", "end": "16:00" },
+        { "date": "2026-10-29", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-03", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-05", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-10", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-12", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-17", "start": "15:30", "end": "16:00" },
+        { "date": "2026-11-19", "start": "15:30", "end": "16:00" },
+        { "date": "2026-12-01", "start": "15:30", "end": "16:00" },
+        { "date": "2026-12-03", "start": "15:30", "end": "16:00" },
+        { "date": "2026-12-08", "start": "15:30", "end": "16:00" },
+        { "date": "2026-12-10", "start": "15:30", "end": "16:00" }
+      ]
+    },
+    "design-of-tools-for-thought": {
+      "location": "North Park",
+      "sessions": [
+        { "date": "2026-10-27", "start": "17:30", "end": "19:00" },
+        { "date": "2026-11-03", "start": "17:30", "end": "19:00" },
+        { "date": "2026-11-10", "start": "17:30", "end": "19:00" },
+        { "date": "2026-11-17", "start": "17:30", "end": "19:00" },
+        { "date": "2026-12-01", "start": "17:30", "end": "19:00" },
+        { "date": "2026-12-08", "start": "17:30", "end": "19:00" },
+        { "date": "2026-12-15", "start": "17:30", "end": "19:00" },
+        { "date": "2026-12-22", "start": "17:30", "end": "19:00" }
+      ]
+    },
+    "erudite-writing-workshop": {
+      "location": "North Park",
+      "sessions": [
+        { "date": "2026-10-27", "start": "19:15", "end": "20:30", "note": "Foundations for Creative Writing" },
+        { "date": "2026-11-03", "start": "19:15", "end": "20:30", "note": "Creative Writing Tool Kit" },
+        { "date": "2026-11-10", "start": "19:15", "end": "20:30", "note": "Dialogue and Character" },
+        { "date": "2026-11-17", "start": "19:15", "end": "20:30", "note": "Setting, Mood, Scene" },
+        { "date": "2026-12-01", "start": "19:15", "end": "20:30", "note": "Critique" },
+        { "date": "2026-12-08", "start": "19:15", "end": "20:30", "note": "Critique" },
+        { "date": "2026-12-15", "start": "19:15", "end": "20:30", "note": "Critique and wrap-up" }
+      ]
+    },
+    "activism-in-the-era-of-oppression": {
+      "location": "heARTspace, 3619 El Cajon Blvd, San Diego",
+      "sessions": [
+        { "date": "2026-10-29", "start": "18:00", "end": "19:30" },
+        { "date": "2026-11-05", "start": "18:00", "end": "19:30" },
+        { "date": "2026-11-12", "start": "18:00", "end": "19:30" }
+      ]
+    },
+    "the-dawn-of-everything": {
+      "location": "Clairemont",
+      "sessions": [
+        { "date": "2026-11-01", "start": "16:30", "end": "18:00", "note": "Chapters 8 and 9" },
+        { "date": "2026-11-15", "start": "16:30", "end": "18:00", "note": "Chapter 10" },
+        { "date": "2026-11-29", "start": "16:30", "end": "18:00", "note": "Chapter 11" },
+        { "date": "2026-12-13", "start": "16:30", "end": "18:00", "note": "Chapter 12 and wrap-up" }
+      ]
+    },
+    "a-primer-on-nvc": {
+      "location": "North Park",
+      "sessions": [
+        { "date": "2026-11-12", "start": "18:30", "end": "20:00", "note": "Introduction to nonviolent communication" },
+        { "date": "2026-11-19", "start": "18:30", "end": "20:00", "note": "Hands-on practice" }
+      ]
+    },
+    "meditation-and-embodiment": {
+      "location": "Serra Mesa",
+      "sessions": [
+        { "date": "2026-11-19", "start": "19:00", "end": "20:00" },
+        { "date": "2026-12-03", "start": "19:00", "end": "20:00" }
+      ]
+    },
+    "public-power-101": {
+      "location": "North Park",
+      "sessions": [
+        { "date": "2026-12-03", "start": "18:00", "end": "19:30" },
+        { "date": "2026-12-10", "start": "18:00", "end": "19:30" },
+        { "date": "2026-12-17", "start": "18:00", "end": "19:30" }
+      ]
+    }
+  }
+}

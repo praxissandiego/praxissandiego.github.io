@@ -17,6 +17,7 @@
     <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/term-calendar.css">
 </head>
 <body>
     <canvas id="backgroundCanvas"></canvas>
@@ -38,12 +39,12 @@
                 <a href="https://antiuniversity.org/">AntiUniversity Now</a> and other similar efforts across the world.
             </p>
 
-            <h3>Summer 2026</h3>
+            <h3>Fall 2026</h3>
             <p>
-                <!--<b><u> <a href="#apply">Registration is open</a> for our Summer 2026 term!</u></b> You can find the classes, clubs, workshops, and any other events we are offering this time and the information about them below.
+                <b><u> <a href="#apply">Registration is open</a> for our Fall 2026 term!</u></b> You can find the classes, clubs, workshops, and any other events we are offering this time and the information about them below. You can also see every meeting in our <a href="#calendar">term calendar</a> and add the ones you want to your own.
 
-                <br><br><b><u>The term starts on June 22. Except when said otherwise, the registration is open until <a href="https://time.is/PT">June 21 11:59pm PT</a>.</u></b>-->
-                The registration for our Summer '26 term is closed, but you can <a href="#classes">browse the classes we offered</a> and <a href="#apply">sign up to be notified when the registration for our Fall term opens</a> below.
+                <br><br><b><u>The first classes start on the week of October 25th. Except when said otherwise, the registration is open until <a href="https://time.is/PT">October 26th 11:59pm PT</a>.</u></b>
+                <!--The registration for our Summer '26 term is closed, but you can <a href="#classes">browse the classes we offered</a> and <a href="#apply">sign up to be notified when the registration for our Fall term opens</a> below.-->
               </p>
               <p>
                 If you have any questions, don't hesitate to <a id="link-conversion" rel="nofollow, noindex" href="t:::o-praxi:-ssan:dieg:o_gma-il/com"> email us</a>!
@@ -88,9 +89,20 @@
             <span id="visibleCount">0</span> of <span id="totalCount">0</span> entries shown
         </div>
 
-        <h2 id="apply">Sign up to be notified when our Fall '27 registration opens</h2>
+        <details id="calendar" class="calendar-section">
+            <summary>
+                <h2>Calendar</h2>
+                <span class="calendar-toggle" aria-hidden="true"></span>
+            </summary>
+            <p class="calendar-intro">
+                Tick what you're interested in to add it to your calendar.
+            </p>
+            <div id="termCalendar" class="term-calendar"></div>
+        </details>
 
-<!--        <div class="application-section">
+        <h2 id="apply">Application Form</h2>
+
+        <div class="application-section">
             <div class="form-embed" id="formContainer">
                 <iframe
                     src="https://tally.so/embed/lbz6Np?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
@@ -103,13 +115,6 @@
                 </iframe>
                 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
             </div>
-        </div>-->
-        <div class="section form-section">
-            <h2 id="apply">Get in touch</h2>
-            <div class="google-form-placeholder">
-                <iframe data-tally-src="https://tally.so/embed/3EpPdL?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="1447" frameborder="0" marginheight="0" marginwidth="0" title="Reach Out to Praxis San Diego"></iframe>
-                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-            </div>
         </div>
     </div>
 
@@ -117,11 +122,15 @@
     <script src="../js/table-utils.js"></script>
     <script src="../js/background-animation-smallworld.js"></script>
     <script src="../js/menu2.js"></script>
+    <script src="../js/term-calendar.js"></script>
     <script>
+        // The current term: loads data/terms/<term>.json for the table and
+        // data/terms/<term>-sessions.json for the calendar.
+        const CURRENT_TERM = 'fall2026';
+
         // Load data from JSON file
         async function loadData() {
             try {
-                const CURRENT_TERM = 'summer2026';
                 const response = await fetch(`../data/terms/${CURRENT_TERM}.json`);
                 allData = await response.json();
                 filteredData = [...allData];
@@ -144,7 +153,8 @@
                     const target = document.getElementById(decodeURIComponent(window.location.hash.substring(1)));
                     if (target) {
                       document.documentElement.style.scrollBehavior = 'auto';
-                      target.scrollIntoView({ block: 'center' });
+                      // Center class rows; align taller sections (like the calendar) to the top
+                      target.scrollIntoView({ block: target.tagName === 'TR' ? 'center' : 'start' });
                       document.documentElement.style.scrollBehavior = '';
                     }
                 }
@@ -159,7 +169,14 @@
         }
 
         // Load data when page loads
-        document.addEventListener('DOMContentLoaded', loadData);
+        document.addEventListener('DOMContentLoaded', () => {
+            TermCalendar.setupCollapsible('#calendar', 'praxisCalendarOpen');
+            loadData();
+            new TermCalendar('#termCalendar', {
+                termUrl: `../data/terms/${CURRENT_TERM}.json`,
+                sessionsUrl: `../data/terms/${CURRENT_TERM}-sessions.json`
+            });
+        });
     </script>
 </body>
 </html>

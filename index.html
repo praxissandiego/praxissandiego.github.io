@@ -44,10 +44,11 @@
             <div class="table-section">
                 <h2>Events</h2>
                 <p>
-                    <strong>Monthly picnics:</strong> every third Saturday of the month, we host a potluck picnic. There you can socialize with others —— talk, eat food, play outdoor games or boardgames —— but also do something on your own —— read, work on a craft, or finish a project —— just in the company of friends and neighbors. The picnic usually, but not always, is at Old Trolley Barn Park. Everyone is welcome to hang out and participate in whatever is happening that day or bring their own activity!
+                    <strong>Monthly picnics:</strong> When running, we host a potluck picnic every third Saturday of the month. There you can socialize with others —— talk, eat food, play outdoor games or boardgames —— but also do something on your own —— read, work on a craft, or finish a project —— just in the company of friends and neighbors. The picnic usually, but not always, is at Old Trolley Barn Park. Everyone is welcome to hang out and participate in whatever is happening that day or bring their own activity!<br>
+                    <strong><i>Note: we are currently putting picnics on hold with the plans to resume them early 2027. If you would like to know when we start hosting them again, please <a href="#apply">let us know below!</a></i></strong><br>
                 </p>
                 <p>
-                    <strong>Independent research group:</strong> starting Wednesday July 1st, we will resume our independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share progress updates, and give feedback to each other.
+                    <strong>Independent research group:</strong> every Wednesday, we host an open independent research group meeting for those who want to do self-directed research. In the meetings we work on our projects, share progress updates, and give feedback to each other.
                 </p>
                 <p>
                     If either of these events sound fun, reach out through <a href="#apply">the form at the bottom of the page</a>!
@@ -60,7 +61,7 @@
                     We started a <a href="university/index.html">community university</a>: a place to teach and learn from each other for fun in a setting outside of traditional academia. Education thrives when it is enjoyable and community driven, and this is exactly what we are doing here.
                 </p>
                 <p>
-                    Below are the classes of our third term starting in June 22nd 2026:
+                    Below are the classes of our fourth term starting in October 25th 2026:
                 </p>
                 <div class="table-wrapper">
                     <table id="table1" class="table-index">
@@ -79,7 +80,7 @@
                 </div>
                 <br>
                 <p>
-                    <b><u>The registration for most classes is open until June 21 11:59pm or until they get filled, but some classes have later deadlines.</u></b> If you want to learn more and register, <a href="university/index.html" class="view-full">click here</a> to visit our community university page!
+                    <b><u>The registration for most classes is open until October 26th 11:59pm or until they get filled, but some classes have later deadlines.</u></b> If you want to learn more and register, <a href="university/index.html" class="view-full">click here</a> to visit our community university page!
                 </p>
             </div>
         </div>
@@ -96,7 +97,7 @@
     <script src="js/link-conversion.js"></script>
     <script src="js/table-utils.js"></script>
     <script src="js/background-animation-smallworld.js"></script>
-    <script src="js/menu.js"></script>
+    <script src="js/menu2.js"></script>
     <script>
         // Table initialization and data loading for index page
         let originalTableData = []; // Store original order for reset
@@ -104,7 +105,7 @@
         async function loadTableData() {
             try {
                 // Load university data
-                const CURRENT_TERM = 'summer2026';
+                const CURRENT_TERM = 'fall2026';
                 const universityResponse = await fetch(`data/terms/${CURRENT_TERM}.json`);
                 const universityData = await universityResponse.json();
 

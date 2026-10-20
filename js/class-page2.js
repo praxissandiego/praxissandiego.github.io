@@ -7,7 +7,7 @@
 
 // Current term - classes from this term link to university.html
 // Archived terms link to archive.html
-const CURRENT_TERM = 'Summer 2026';
+const CURRENT_TERM = 'Fall 2026';
 
 /**
  * Load class data from JSON and populate page elements

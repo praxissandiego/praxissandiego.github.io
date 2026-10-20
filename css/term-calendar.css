@@ -1,0 +1,515 @@
+/* ========================================
+   Term calendar (university/index.html)
+   Used with js/term-calendar.js
+   ======================================== */
+
+/* ── Collapsible "Calendar" section ── */
+
+.calendar-section > summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 2rem 0 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.calendar-section > summary::-webkit-details-marker {
+    display: none;
+}
+
+.calendar-section > summary::marker {
+    content: none;
+}
+
+.calendar-section > summary h2 {
+    margin: 0;
+}
+
+.calendar-section > summary h2::before {
+    content: '▸';
+    display: inline-block;
+    width: 1em;
+    margin-right: 0.4em;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.calendar-section[open] > summary h2::before {
+    transform: rotate(90deg);
+}
+
+.calendar-toggle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.calendar-toggle::after {
+    content: 'Show meeting dates';
+}
+
+.calendar-section[open] .calendar-toggle::after {
+    content: 'Hide';
+}
+
+.calendar-section > summary:hover .calendar-toggle {
+    text-decoration: underline;
+}
+
+.calendar-section > summary:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.term-calendar {
+    margin-bottom: 2rem;
+}
+
+.calendar-intro {
+    margin-bottom: 1rem;
+}
+
+.tcal-error,
+.tcal-empty {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Shared card look (matches tables and info boxes) */
+.tcal-month,
+.tcal-day,
+.tcal-classes {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Month grid + selected day, side by side */
+.tcal-top {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* ── Month ── */
+
+.tcal-month {
+    padding: 0.75rem;
+}
+
+.tcal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.tcal-title {
+    font-weight: 700;
+}
+
+.tcal-nav-btn {
+    font-family: inherit;
+    font-size: 1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tcal-nav-btn:hover:not(:disabled) {
+    background-color: #f5f5f5;
+    border-color: #999;
+}
+
+.tcal-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.tcal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.tcal-wd {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #888;
+    padding: 0.2rem 0;
+}
+
+.tcal-cell {
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: #333;
+    height: 2.6rem;
+    padding: 0.3rem 0 0 0;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    line-height: 1.2;
+}
+
+.tcal-past .tcal-num {
+    color: #aaa;
+}
+
+.tcal-today .tcal-num {
+    color: #2563eb;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.tcal-has {
+    cursor: pointer;
+    background-color: #f2f5fa;
+    transition: background-color 0.12s ease;
+}
+
+.tcal-has:hover {
+    background-color: #e4ebf7;
+}
+
+.tcal-has:focus-visible,
+.tcal-nav-btn:focus-visible,
+.tcal-btn:focus-visible,
+.tcal-link-btn:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+}
+
+.tcal-selected,
+.tcal-selected:hover {
+    background-color: #eef2ff;
+    box-shadow: inset 0 0 0 2px #2563eb;
+}
+
+.tcal-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    max-width: 100%;
+}
+
+.tcal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* ── Selected day ── */
+
+.tcal-day {
+    padding: 1rem 1.25rem;
+}
+
+.tcal-day .tcal-day-title {
+    font-size: 1rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.tcal-meeting {
+    border-left: 4px solid #2563eb;
+    padding: 0.1rem 0 0.1rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.tcal-meeting:last-child {
+    margin-bottom: 0;
+}
+
+.tcal-meeting-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    margin-bottom: 0.15rem;
+}
+
+.tcal-meeting-meta,
+.tcal-meeting-note {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.45;
+}
+
+.tcal-meeting-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    margin-top: 0.45rem;
+}
+
+/* "+ Add this meeting" menu */
+.tcal-menu {
+    position: relative;
+}
+
+.tcal-menu > summary {
+    list-style: none;
+    display: inline-block;
+}
+
+.tcal-menu > summary::-webkit-details-marker {
+    display: none;
+}
+
+.tcal-menu > summary::marker {
+    content: none;
+}
+
+.tcal-menu > summary::after {
+    content: ' ▾';
+    font-size: 0.7rem;
+}
+
+.tcal-menu[open] > summary {
+    background-color: #eee;
+    border-color: #999;
+}
+
+.tcal-menu-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 20;
+    min-width: 14rem;
+    padding: 0.3rem 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tcal-menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.4rem 0.8rem;
+    font-family: inherit;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    text-align: left;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tcal-menu-item:hover,
+.tcal-menu-item:focus-visible {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    text-decoration: none;
+    outline: none;
+}
+
+.tcal-register {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ── Buttons ── */
+
+.tcal-btn {
+    font-family: inherit;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tcal-btn:hover:not(:disabled) {
+    background-color: #eee;
+    border-color: #999;
+}
+
+.tcal-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.tcal-btn-primary {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.9rem;
+    color: #fff;
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+.tcal-btn-primary:hover:not(:disabled) {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.tcal-btn-sm {
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+}
+
+.tcal-link-btn {
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: #2563eb;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.tcal-link-btn:hover {
+    text-decoration: underline;
+}
+
+/* ── Class list ── */
+
+.tcal-classes {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+}
+
+.tcal-classes-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.tcal-classes-title {
+    font-weight: 700;
+}
+
+.tcal-classes-tools {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.tcal-classes-head {
+    margin-bottom: 0.6rem;
+}
+
+/* Two columns of classes on wider screens to keep the list short */
+.tcal-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.tcal-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.45rem 0;
+    border-top: 1px solid #eee;
+}
+
+.tcal-row-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.tcal-row-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+.tcal-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.4rem;
+}
+
+.tcal-row-text {
+    min-width: 0;
+}
+
+.tcal-row-name {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.tcal-row-meta {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.tcal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.9rem;
+}
+
+.tcal-help {
+    flex: 1;
+    min-width: 14rem;
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.45;
+}
+
+/* ── Phones ── */
+
+@media (max-width: 768px) {
+    .tcal-top {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tcal-cell {
+        height: 2.9rem;
+    }
+
+    .tcal-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tcal-classes {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+    }
+
+    .tcal-btn-primary {
+        width: 100%;
+    }
+}

@@ -17,12 +17,17 @@ class NavigationMenu {
             ],
             terms: {
                 current: {
-                    name: 'Summer 2026',
-                    path: '/data/terms/summer2026.json',
-                    linkPrefix: '/university/classes/summer2026/'
+                    name: 'Fall 2026',
+                    path: '/data/terms/fall2026.json',
+                    linkPrefix: '/university/classes/fall2026/'
                 },
                 // Listed newest first in the menu
                 archived: [
+                    {
+                        name: 'Summer 2026',
+                        path: '/data/terms/summer2026.json',
+                        linkPrefix: '/university/classes/winter2026/'
+                    },
                     {
                         name: 'Winter 2026',
                         path: '/data/terms/winter2026.json',
