@@ -82,5 +82,19 @@
     "whenSort1": "6",
     "where": "Clairemont,<br>Address provided to enrollees.",
     "link": "classes/fall2026/the-dawn-of-everything.html"
+  },
+  {
+    "name": "A Primer On Non-Violent Communication",
+    "id": "a-primer-on-nvc",
+    "description": "This two week class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.<br><br><span class='announcement'><b><u>Application deadline: Nov 9</u></b></span>",
+    "instructor": "Alex T & Dorrie B",
+    "when": "Thursdays 6:30-8pm,<br>Nov 12 & Nov 19,<br>2 meetings",
+    "dayOrder": "5",
+    "timeOrder": "1830",
+    "start": "Thu, Nov 12",
+    "duration": "2 weeks",
+    "whenSort1": "7",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/fall2026/a-primer-on-nvc.html"
   }
 ]
