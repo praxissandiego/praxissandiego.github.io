@@ -98,6 +98,20 @@
     "link": "classes/fall2026/a-primer-on-nvc.html"
   },
   {
+    "name": "Meditation And Embodiment",
+    "id": "meditation-and-embodiment",
+    "description": "Each session, we’ll try one mindbody practice together, then discuss it or other stuff we’ve been practicing recently.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
+    "instructor": "Alex Krusz",
+    "when": "Thursdays 7:00-8:00pm,<br>Nov 19 & Dec 3",
+    "dayOrder": "4",
+    "timeOrder": "1900",
+    "start": "Thu, Nov 19",
+    "duration": "2 weeks",
+    "whenSort1": "8",
+    "where": "Serra Mesa,<br>Address provided to enrollees.<br><br>Field trips, if we do them, will be announced ahead of time.",
+    "link": "https://krusz.net/meditation-meetup/"
+  },
+  {
     "name": "Public Power 101",
     "id": "public-power-101",
     "description": "Public Power 101 is a popular education style, three-week class that explores how San Diegans can fight the rising cost of living and build a not-for-profit publicly owned alternative to SDGE through community organizing and public education.<br><br><span class='announcement'><b><u>Application deadline: Nov 30</u></b></span>",
@@ -107,7 +121,7 @@
     "timeOrder": "1800",
     "start": "Thu, Dec 3",
     "duration": "3 weeks",
-    "whenSort1": "8",
+    "whenSort1": "9",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/public-power-101.html"
   }
