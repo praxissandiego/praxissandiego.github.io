@@ -4,7 +4,7 @@
     "id": "essay-club",
     "description": "This class is an essay club, specifically an essay-reading club. Think of it as a normal reading club... but with essays. This is for you if you want a little more lively discussion in your life. I'm teaching this class because I want that, and I want to widen my perspectives on life!",
     "instructor": "Cornel Amler",
-    "when": "Sundays 10-11am,<br>Oct 25-Nov 15<br>4 meetings",
+    "when": "Sundays 10-11am,<br>Oct 25-Nov 15<br>4 weekly meetings",
     "dayOrder": "7",
     "timeOrder": "1000",
     "start": "Sun, Oct 25",
@@ -12,6 +12,20 @@
     "whenSort1": "1",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/essay-club.html"
+  },
+  {
+    "name": "Tai Chi",
+    "id": "tai-chi",
+    "description": "Improve balance and coordination through mindful movement.<br>Price: $60, reduced price or free attendance is also available.",
+    "instructor": "Quin Herron",
+    "when": "Tuesdays and Thursdays 3:30-4pm,<br>Oct 27-Dec 10<br>12 meetings over 6 weeks<br>(break on Nov 24 & 26)",
+    "dayOrder": "2",
+    "timeOrder": "1530",
+    "start": "Tue, Oct 27",
+    "duration": "6 weeks",
+    "whenSort1": "2",
+    "where": "Morley Field Shuffleboard Court in front of <a href='https://maps.app.goo.gl/ArSx392pTUnqwcjB8'>the San Diego Petanque Club</a>",
+    "link": "classes/fall2026/tai-chi.html"
   },
   {
     "name": "Erudite Writing Workshop",
@@ -23,7 +37,7 @@
     "timeOrder": "1915",
     "start": "Tue, Oct 27",
     "duration": "7 weeks",
-    "whenSort1": "2",
+    "whenSort1": "3",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/erudite-writing-workshop.html"
   },
