@@ -16,15 +16,20 @@ class NavigationMenu {
             ],
             terms: {
                 current: {
-                    name: 'Winter 2026',
-                    path: '/data/terms/winter2026.json',
-                    linkPrefix: '/classes/winter2026/'
+                    name: 'Spring 2026',
+                    path: '/data/terms/spring2026.json',
+                    linkPrefix: '/classes/spring2026/'
                 },
                 archived: [
                     {
                         name: 'Fall 2025',
                         path: '/data/terms/fall2025.json',
                         linkPrefix: '/classes/fall2025/'
+                    },
+                    {
+                        name: 'Winter 2026',
+                        path: '/data/terms/winter2026.json',
+                        linkPrefix: '/classes/winter2026/'
                     }
                 ]
             }
@@ -143,9 +148,9 @@ class NavigationMenu {
         document.getElementById('menuOverlay').classList.add('active');
         document.getElementById('menuPanel').classList.add('active');
         document.body.classList.add('menu-open');
-        
+
         // Dispatch event for background animation to adjust
-        window.dispatchEvent(new CustomEvent('menuStateChange', { 
+        window.dispatchEvent(new CustomEvent('menuStateChange', {
             detail: { isOpen: true, menuWidth: this.getMenuWidth() }
         }));
     }
@@ -165,9 +170,9 @@ class NavigationMenu {
         document.getElementById('menuOverlay').classList.remove('active');
         document.getElementById('menuPanel').classList.remove('active');
         document.body.classList.remove('menu-open');
-        
+
         // Dispatch event for background animation to adjust
-        window.dispatchEvent(new CustomEvent('menuStateChange', { 
+        window.dispatchEvent(new CustomEvent('menuStateChange', {
             detail: { isOpen: false, menuWidth: 0 }
         }));
     }
