@@ -39,7 +39,12 @@ class TermCalendar {
                 '#0d9488', // teal
                 '#ca8a04', // mustard
                 '#92400e', // brown
-                '#475569'  // slate
+                '#475569', // slate
+                '#dc2626', // red
+                '#0891b2', // cyan
+                '#65a30d', // lime
+                '#1e3a8a', // navy
+                '#c026d3'  // magenta
             ]
         }, options);
 
@@ -186,7 +191,7 @@ class TermCalendar {
                 <div class="tcal-list"></div>
                 <div class="tcal-actions">
                     <button type="button" class="tcal-btn tcal-btn-primary" data-act="add-checked" disabled>+ Add selected classes</button>
-                    <span class="tcal-help">Download a calendar <code>.ics</code> file to add the selected meetings in Apple Calendar, Outlook, Google Calendar (via Import) and most other calendar apps.</span>
+                    <span class="tcal-help">Download a calendar <code>.ics</code> file that you can open in Apple Calendar, Outlook, Google Calendar (via Import) and most other calendar apps.</span>
                 </div>
             </div>
         `;
@@ -288,14 +293,15 @@ class TermCalendar {
 
         for (const { cls, session } of meetings) {
             const meta = [this.timeRange(session.start, session.end), session.location].filter(Boolean).join(' · ');
-            const noteParts = ['Meeting ' + session.number + ' of ' + session.total];
+            // "Meeting 2 of 4" only makes sense for classes with several meetings
+            const noteParts = session.total > 1 ? ['Meeting ' + session.number + ' of ' + session.total] : [];
             if (session.note) noteParts.push(session.note);
 
             html += `
                 <div class="tcal-meeting" style="border-left-color:${cls.color}">
                     <div class="tcal-meeting-name"><a href="${this.escAttr(cls.link)}">${this.esc(cls.name)}</a></div>
                     <div class="tcal-meeting-meta">${this.esc(meta)}</div>
-                    <div class="tcal-meeting-note">${this.esc(noteParts.join(' · '))}</div>
+                    ${noteParts.length ? `<div class="tcal-meeting-note">${this.esc(noteParts.join(' · '))}</div>` : ''}
                     <div class="tcal-meeting-actions">
                         ${this.renderAddMenu(cls, session)}
                         ${session.total > 1 ? `<button type="button" class="tcal-btn" data-add="class" data-id="${cls.id}" title="Downloads a calendar (.ics) file">+ Add all ${session.total} meetings</button>` : ''}
@@ -511,7 +517,12 @@ class TermCalendar {
     describe(cls, session) {
         const info = this.absoluteLink(cls.link);
         const register = this.registerLink(cls, true);
-        const lines = ['Meeting ' + session.number + ' of ' + session.total + (session.note ? ': ' + session.note : '')];
+        const lines = [];
+        if (session.total > 1) {
+            lines.push('Meeting ' + session.number + ' of ' + session.total + (session.note ? ': ' + session.note : ''));
+        } else if (session.note) {
+            lines.push(session.note);
+        }
         if (cls.instructor) lines.push('Instructor: ' + cls.instructor);
         lines.push('', 'Register here: ' + register);
         if (register !== info) lines.push('Class info: ' + info);
@@ -639,7 +650,9 @@ class TermCalendar {
         });
         // Order Monday-first, Sunday last
         seen.sort((a, b) => ((a + 6) % 7) - ((b + 6) % 7));
-        return seen.map(d => names[d]).join(' & ');
+        const list = seen.map(d => names[d]).join(' & ');
+        // One-off classes: "Wednesday", not "Wednesdays"
+        return cls.sessions.length === 1 ? list.replace(/s$/, '') : list;
     }
 
     timeRange(start, end) {

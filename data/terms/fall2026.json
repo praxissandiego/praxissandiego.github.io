@@ -9,7 +9,7 @@
     "timeOrder": "1000",
     "start": "Sun, Oct 25",
     "duration": "4 weeks",
-    "whenSort1": "1",
+    "whenSort1": "01",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/essay-club.html"
   },
@@ -23,7 +23,7 @@
     "timeOrder": "1530",
     "start": "Tue, Oct 27",
     "duration": "6 weeks",
-    "whenSort1": "2",
+    "whenSort1": "02",
     "where": "Morley Field Shuffleboard Court in front of <a href='https://maps.app.goo.gl/ArSx392pTUnqwcjB8'>the San Diego Petanque Club</a>",
     "link": "classes/fall2026/tai-chi.html"
   },
@@ -37,7 +37,7 @@
     "timeOrder": "1730",
     "start": "Tue, Oct 27",
     "duration": "8 weeks",
-    "whenSort1": "3",
+    "whenSort1": "03",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/design-of-tools-for-thought.html"
   },
@@ -51,7 +51,7 @@
     "timeOrder": "1915",
     "start": "Tue, Oct 27",
     "duration": "7 weeks",
-    "whenSort1": "4",
+    "whenSort1": "04",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/erudite-writing-workshop.html"
   },
@@ -65,7 +65,7 @@
     "timeOrder": "1800",
     "start": "Thu, Oct 29",
     "duration": "3 weeks",
-    "whenSort1": "5",
+    "whenSort1": "05",
     "where": "<a href='http://www.weareheartspace.com/'>heARTspace</a>,<br><a href='https://maps.app.goo.gl/A7Laftv4YA9LtkdY7'>3619 El Cajon Blvd</a>",
     "link": "classes/fall2026/activism-in-the-era-of-oppression.html"
   },
@@ -79,7 +79,7 @@
     "timeOrder": "1630",
     "start": "Sun, Nov 1",
     "duration": "4 weeks",
-    "whenSort1": "6",
+    "whenSort1": "06",
     "where": "Clairemont,<br>Address provided to enrollees.",
     "link": "classes/fall2026/the-dawn-of-everything.html"
   },
@@ -93,9 +93,23 @@
     "timeOrder": "1830",
     "start": "Thu, Nov 12",
     "duration": "2 weeks",
-    "whenSort1": "7",
+    "whenSort1": "07",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/a-primer-on-nvc.html"
+  },
+  {
+    "name": "Harm Reduction Is Survival",
+    "id": "harm-reduction-is-survival",
+    "description": "This class is a radical & practical introduction to harm reduction as a life-saving response to the drug war, criminalization, and abandonment of people who use drugs. Students will learn how different drugs affect the body, how to respond to overdoses, and how harm reduction principles challenge abstinence-only, carceral, and moralized approaches to drug use.<br><br><span class='announcement'><b><u>Application deadline: Nov 16</u></b></span>",
+    "instructor": "Cherish B",
+    "when": "Wednesday 6:15-7:45pm,<br>Nov 18,<br>1 meeting",
+    "dayOrder": "3",
+    "timeOrder": "1815",
+    "start": "Wed, Nov 18",
+    "duration": "1 meeting",
+    "whenSort1": "08",
+    "where": "<a href='https://www.heybooksorelse.com/'>Hey! Books</a>,<br><a href='https://maps.app.goo.gl/oww6CQgBr89iD9XH9'>921 E St</a>",
+    "link": "classes/fall2026/harm-reduction-is-survival.html"
   },
   {
     "name": "Meditation And Embodiment",
@@ -107,7 +121,7 @@
     "timeOrder": "1900",
     "start": "Thu, Nov 19",
     "duration": "2 weeks",
-    "whenSort1": "8",
+    "whenSort1": "09",
     "where": "Serra Mesa,<br>Address provided to enrollees.<br><br>Field trips, if we do them, will be announced ahead of time.",
     "link": "https://krusz.net/meditation-meetup/"
   },
@@ -121,7 +135,7 @@
     "timeOrder": "1800",
     "start": "Thu, Dec 3",
     "duration": "3 weeks",
-    "whenSort1": "9",
+    "whenSort1": "10",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/public-power-101.html"
   }
