@@ -42,20 +42,6 @@
     "link": "classes/fall2026/design-of-tools-for-thought.html"
   },
   {
-    "name": "Erudite Writing Workshop",
-    "id": "erudite-writing-workshop",
-    "description": "This 7-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.",
-    "instructor": "Karyssa Newsome",
-    "when": "Tuesdays 7:15-8:30pm,<br>Oct 27-Dec 15,<br>7 meetings<br>(break on Nov 24)",
-    "dayOrder": "2",
-    "timeOrder": "1915",
-    "start": "Tue, Oct 27",
-    "duration": "7 weeks",
-    "whenSort1": "04",
-    "where": "North Park,<br>Address provided to enrollees.",
-    "link": "classes/fall2026/erudite-writing-workshop.html"
-  },
-  {
     "name": "Activism In The Era Of Oppression: Defending The Indigent Through The Rule Of Law",
     "id": "activism-in-the-era-of-oppression",
     "description": "A class to demystify the law and study how it can be used for revolutionary change.<br><br><span class='announcement'><b><u>Application deadline: Oct 27</u></b></span>",
@@ -65,7 +51,7 @@
     "timeOrder": "1800",
     "start": "Thu, Oct 29",
     "duration": "3 weeks",
-    "whenSort1": "05",
+    "whenSort1": "04",
     "where": "<a href='http://www.weareheartspace.com/'>heARTspace</a>,<br><a href='https://maps.app.goo.gl/A7Laftv4YA9LtkdY7'>3619 El Cajon Blvd</a>",
     "link": "classes/fall2026/activism-in-the-era-of-oppression.html"
   },
@@ -79,9 +65,23 @@
     "timeOrder": "1630",
     "start": "Sun, Nov 1",
     "duration": "4 weeks",
-    "whenSort1": "06",
+    "whenSort1": "05",
     "where": "Clairemont,<br>Address provided to enrollees.",
     "link": "classes/fall2026/the-dawn-of-everything.html"
+  },
+  {
+    "name": "Erudite Writing Workshop",
+    "id": "erudite-writing-workshop",
+    "description": "This 7-week workshop brings writers together for collaborative learning and guided generative sessions. Through discussion, writing prompts, and peer critique, participants will explore the building blocks of creative writing and gain tools to hone their craft.<br><br><span class='announcement'><b><u>Application deadline: Nov 1</u></b></span>",
+    "instructor": "Karyssa Newsome",
+    "when": "Tuesdays 7:15-8:30pm,<br>Nov 3-Dec 22,<br>7 meetings<br>(break on Nov 24)",
+    "dayOrder": "2",
+    "timeOrder": "1915",
+    "start": "Tue, Nov 3",
+    "duration": "7 weeks",
+    "whenSort1": "06",
+    "where": "North Park,<br>Address provided to enrollees.",
+    "link": "classes/fall2026/erudite-writing-workshop.html"
   },
   {
     "name": "A Primer On Non-Violent Communication",
