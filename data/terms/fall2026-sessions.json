@@ -45,13 +45,13 @@
     "erudite-writing-workshop": {
       "location": "North Park",
       "sessions": [
-        { "date": "2026-10-27", "start": "19:15", "end": "20:30", "note": "Foundations for Creative Writing" },
-        { "date": "2026-11-03", "start": "19:15", "end": "20:30", "note": "Creative Writing Tool Kit" },
-        { "date": "2026-11-10", "start": "19:15", "end": "20:30", "note": "Dialogue and Character" },
-        { "date": "2026-11-17", "start": "19:15", "end": "20:30", "note": "Setting, Mood, Scene" },
-        { "date": "2026-12-01", "start": "19:15", "end": "20:30", "note": "Critique" },
+        { "date": "2026-11-03", "start": "19:15", "end": "20:30", "note": "Foundations for Creative Writing" },
+        { "date": "2026-11-10", "start": "19:15", "end": "20:30", "note": "Creative Writing Tool Kit" },
+        { "date": "2026-11-17", "start": "19:15", "end": "20:30", "note": "Dialogue and Character" },
+        { "date": "2026-12-01", "start": "19:15", "end": "20:30", "note": "Setting, Mood, Scene" },
         { "date": "2026-12-08", "start": "19:15", "end": "20:30", "note": "Critique" },
-        { "date": "2026-12-15", "start": "19:15", "end": "20:30", "note": "Critique and wrap-up" }
+        { "date": "2026-12-15", "start": "19:15", "end": "20:30", "note": "Critique" },
+        { "date": "2026-12-22", "start": "19:15", "end": "20:30", "note": "Critique and wrap-up" },
       ]
     },
     "activism-in-the-era-of-oppression": {
