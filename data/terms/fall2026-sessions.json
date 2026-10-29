@@ -51,7 +51,7 @@
         { "date": "2026-12-01", "start": "19:15", "end": "20:30", "note": "Setting, Mood, Scene" },
         { "date": "2026-12-08", "start": "19:15", "end": "20:30", "note": "Critique" },
         { "date": "2026-12-15", "start": "19:15", "end": "20:30", "note": "Critique" },
-        { "date": "2026-12-22", "start": "19:15", "end": "20:30", "note": "Critique and wrap-up" },
+        { "date": "2026-12-22", "start": "19:15", "end": "20:30", "note": "Critique and wrap-up" }
       ]
     },
     "activism-in-the-era-of-oppression": {
@@ -65,10 +65,10 @@
     "the-dawn-of-everything": {
       "location": "Clairemont",
       "sessions": [
-        { "date": "2026-11-01", "start": "16:30", "end": "18:00", "note": "Chapters 8 and 9" },
-        { "date": "2026-11-15", "start": "16:30", "end": "18:00", "note": "Chapter 10" },
-        { "date": "2026-11-29", "start": "16:30", "end": "18:00", "note": "Chapter 11" },
-        { "date": "2026-12-13", "start": "16:30", "end": "18:00", "note": "Chapter 12 and wrap-up" }
+        { "date": "2026-11-01", "start": "16:30", "end": "18:00", "note": "Chapter 8" },
+        { "date": "2026-11-15", "start": "16:30", "end": "18:00", "note": "Chapter 9" },
+        { "date": "2026-11-29", "start": "16:30", "end": "18:00", "note": "Chapter 10" },
+        { "date": "2026-12-13", "start": "16:30", "end": "18:00", "note": "Chapters 11 and 12" }
       ]
     },
     "a-primer-on-nvc": {
