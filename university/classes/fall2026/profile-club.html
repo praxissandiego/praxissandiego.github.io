@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<!-- PREVIEW VERSION: reads /data/terms/fall2026-preview.json so the class stays off the public class list.
-     At go-live, replace this file with the regular version (it reads /data/terms/fall2026.json and has no noindex tag). -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
     <title>Profile Club: People Shaping the World - Praxis Community University, Fall 2026</title>
     <meta name="description" content="Each week we read one great long-form profile of someone shaping the world right now, together over lunch, and then talk about it. No homework.">
     <meta property="og:type" content="website">
@@ -96,7 +93,7 @@
 
             <div class="form-embed" id="formContainer">
                 <iframe
-                    src="https://tally.so/embed/lbz6Np?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&class=Profile%20Club%3A%20People%20Shaping%20the%20World"
+                    src="https://tally.so/embed/lbz6Np?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&class=Profile%20Club%3A%20People%20Shaping%20the%20World%20%28Rolling%20application%29"
                     width="100%"
                     height="600"
                     frameborder="0"
@@ -118,11 +115,8 @@
             loadAndPopulateClassPage(
                 "Profile Club: People Shaping the World",
                 "Fall 2026",
-                "/data/terms/fall2026-preview.json"
-            ).then(() => {
-                // Preview only: "back" goes to the preview copy of the class list
-                document.getElementById('backLink').href = '/university/preview.html#profile-club';
-            });
+                "/data/terms/fall2026.json"
+            );
             initFormHandler();
         });
     </script>

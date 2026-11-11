@@ -86,7 +86,7 @@
   {
     "name": "A Primer On Non-Violent Communication",
     "id": "a-primer-on-nvc",
-    "description": "This two week class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.<br><br><span class='announcement'><b><u>Application deadline: Nov 9</u></b></span>",
+    "description": "This two week class introduces the topics of violent and nonviolent communication, with the aim of improving our connections with each other.<br><br><span class='announcement'><b><u>Application deadline: Nov 11</u></b></span>",
     "instructor": "Alex T & Dorrie B",
     "when": "Thursdays 6:30-8pm,<br>Nov 12 & Nov 19,<br>2 meetings",
     "dayOrder": "4",
@@ -116,7 +116,7 @@
     "id": "meditation-and-embodiment",
     "description": "Each session, we’ll try one mindbody practice together, then discuss it or other stuff we’ve been practicing recently.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
     "instructor": "Alex Krusz",
-    "when": "Thursdays 7:00-8:00pm,<br>Nov 19 & Dec 3,<br>2 meetings",
+    "when": "Thursdays 7-8pm,<br>Nov 19 & Dec 3,<br>2 meetings",
     "dayOrder": "4",
     "timeOrder": "1900",
     "start": "Thu, Nov 19",
@@ -124,6 +124,20 @@
     "whenSort1": "09",
     "where": "Serra Mesa,<br>Address provided to enrollees.<br><br>Field trips, if we do them, will be announced ahead of time.",
     "link": "https://krusz.net/meditation-meetup/"
+  },
+  {
+    "name": "Profile Club: People Shaping the World",
+    "id": "profile-club",
+    "description": "Each week we read one great long-form profile of someone shaping the world right now — a founder, a politician, a scientist, a thinker — together, over lunch, and then talk about it. No homework: we all read at the table and start from the same page.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
+    "instructor": "Spencer",
+    "when": "Saturdays 12-2pm+,<br>Nov 21-Dec 19,<br>4 meetings<br>(break on Nov 28)",
+    "dayOrder": "6",
+    "timeOrder": "1200",
+    "start": "Sat, Nov 21",
+    "duration": "4 weeks",
+    "whenSort1": "10",
+    "where": "Bay Park,<br>Address provided to enrollees.<br><br>Online option available.",
+    "link": "classes/fall2026/profile-club.html"
   },
   {
     "name": "Public Power 101",
@@ -135,7 +149,7 @@
     "timeOrder": "1800",
     "start": "Thu, Dec 3",
     "duration": "3 weeks",
-    "whenSort1": "10",
+    "whenSort1": "11",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/public-power-101.html"
   }
