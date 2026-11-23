@@ -126,20 +126,6 @@
     "link": "https://krusz.net/meditation-meetup/"
   },
   {
-    "name": "Profile Club: People Shaping the World",
-    "id": "profile-club",
-    "description": "Each week we read one great long-form profile of someone shaping the world right now — a founder, a politician, a scientist, a thinker — together, over lunch, and then talk about it. No homework: we all read at the table and start from the same page.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
-    "instructor": "Spencer",
-    "when": "Saturdays 12-2pm+,<br>Nov 21-Dec 19,<br>4 meetings<br>(break on Nov 28)",
-    "dayOrder": "6",
-    "timeOrder": "1200",
-    "start": "Sat, Nov 21",
-    "duration": "4 weeks",
-    "whenSort1": "10",
-    "where": "Bay Park,<br>Address provided to enrollees.<br><br>Online option available.",
-    "link": "classes/fall2026/profile-club.html"
-  },
-  {
     "name": "Public Power 101",
     "id": "public-power-101",
     "description": "Public Power 101 is a popular education style, three-week class that explores how San Diegans can fight the rising cost of living and build a not-for-profit publicly owned alternative to SDGE through community organizing and public education.<br><br><span class='announcement'><b><u>Application deadline: Nov 30</u></b></span>",
@@ -149,8 +135,22 @@
     "timeOrder": "1800",
     "start": "Thu, Dec 3",
     "duration": "3 weeks",
-    "whenSort1": "11",
+    "whenSort1": "10",
     "where": "North Park,<br>Address provided to enrollees.",
     "link": "classes/fall2026/public-power-101.html"
+  },
+  {
+    "name": "Profile Club: People Shaping the World",
+    "id": "profile-club",
+    "description": "Each week we read one great long-form profile of someone shaping the world right now — a founder, a politician, a scientist, a thinker — together, over lunch, and then talk about it. No homework: we all read at the table and start from the same page.<br><br><span class='announcement'><b><u>Rolling application</u></b></span>",
+    "instructor": "Spencer",
+    "when": "Saturdays 12-2pm+,<br>Dec 5-Dec 19,<br>3 meetings",
+    "dayOrder": "6",
+    "timeOrder": "1200",
+    "start": "Sat, Dec 5",
+    "duration": "3 weeks",
+    "whenSort1": "11",
+    "where": "Bay Park,<br>Address provided to enrollees.<br><br>Online option available.",
+    "link": "classes/fall2026/profile-club.html"
   }
 ]
